@@ -11,18 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('commandes', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
-            $table->string('phone_number')->nullable();
+
+            $table->unsignedBigInteger('client_id')->nullable();
+            $table->foreign('client_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->string('quartier')->nullable();
             $table->string('adresse')->nullable();
             $table->string('province')->nullable();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('email')->unique();
-            $table->string('password')->nullable();
-            $table->rememberToken();
+
+            $table->decimal('total', 10, 2)->nullable();
+            $table->decimal('delivery_price', 10, 2)->nullable();
+
+            $table->boolean('is_valid')->default(false)->nullable();
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -32,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('commandes');
     }
 };
