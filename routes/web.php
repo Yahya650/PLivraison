@@ -14,4 +14,9 @@ use App\Http\Controllers\v1\web\WebController;
 |
 */
 
-Route::get('/', [WebController::class, 'home']);
+
+
+Route::group(['as' => 'web.'], function () {
+    Route::get('/', [WebController::class, 'home'])->name('home');
+    Route::get('/products', [WebController::class, 'products'])->name('products');
+});

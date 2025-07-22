@@ -26,6 +26,54 @@
     <link rel="stylesheet" href="/v1/web/assets/css/mobile-menu.css">
     <link rel="stylesheet" href="/v1/web/assets/fonts/flaticon/flaticon.css">
     <link rel="stylesheet" href="/v1/web/assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <style>
+        .loader {
+            /* border: 16px solid #f3f3f3; */
+            /* border-radius: 50%; */
+            /* border-top: 16px solid #3498db; */
+            /* width: 120px; */
+            /* height: 120px; */
+            -webkit-animation: growShrink 1s linear ease-in-out;
+            animation: growShrink 1s infinite ease-in-out;
+            /* Apply the animation */
+        }
+
+        @-webkit-keyframes growShrink {
+            0% {
+                transform: scale(1);
+                /* Initial size */
+            }
+
+            50% {
+                transform: scale(1.5);
+                /* Grow */
+            }
+
+            100% {
+                transform: scale(1);
+                /* Shrink back to original size */
+            }
+        }
+
+        @keyframes growShrink {
+            0% {
+                transform: scale(1);
+                /* Initial size */
+            }
+
+            50% {
+                transform: scale(1.5);
+                /* Grow */
+            }
+
+            100% {
+                transform: scale(1);
+                /* Shrink back to original size */
+            }
+        }
+    </style>
 
     @yield('style')
     @yield('seo')
@@ -63,6 +111,12 @@
     <script src="/v1/web/assets/js/owl.thumbs.min.js"></script>
     <script src="/v1/web/assets/js/jquery.scrollbar.min.js"></script>
     <script src="/v1/web/assets/js/frontend-plugin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://malsup.github.io/jquery.blockUI.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+    <script src="{{ '/appV2.js?v=' . time() }}"></script>
 
     @yield('script')
 

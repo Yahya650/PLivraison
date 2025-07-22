@@ -5,20 +5,29 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Magasin;
 use App\Models\Category;
+use Illuminate\Support\Str;
+use Faker\Factory as Faker;
 
 class MagasinSeeder extends Seeder
 {
     public function run(): void
     {
-        $category = Category::first();
+        $faker = Faker::create();
+        $categories = Category::all();
 
-        Magasin::insert([
-            [
-                'name' => 'Magasin Central',
-                'slug' => 'magasin-central',
-                'description' => 'Magasin principal.',
-                'category_id' => $category->id,
-            ]
-        ]);
+        foreach ($categories as $category) {
+            for ($i = 0; $i < 3; $i++) {
+                $name = $faker->company;
+                $magasin = Magasin::create([
+                    'name' => $name,
+                    'slug' => Str::slug($name),
+                    'description' => $faker->paragraph,
+                    'category_id' => $category->id,
+                ]);
+
+                $imageUrl = 'https://placehold.co/300x300.png?text=Magasin+' . urlencode($magasin->name);
+                $magasin->addAttachmentFromLink($imageUrl); // from HasAttachment trait
+            }
+        }
     }
 }

@@ -3,11 +3,11 @@
         <div class="container">
             <div class="top-bar-left">
                 <div class="header-message">
-                    Welcome to our online store!
+                    Bienvenue dans notre boutique en ligne !
                 </div>
             </div>
             <div class="top-bar-right">
-                <div class="header-language">
+                {{-- <div class="header-language">
                     <div class="gnash-language gnash-dropdown">
                         <a href="#" class="active language-toggle" data-gnash="gnash-dropdown">
                             <span>
@@ -31,10 +31,10 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 <ul class="header-user-links">
                     <li>
-                        <a href="login.html">Login or Register</a>
+                        <a href="login.html">vous connecter ou vous inscrire</a>
                     </li>
                 </ul>
             </div>
@@ -45,19 +45,21 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-4 col-md-3 col-xs-7 col-ts-12 header-element">
                     <div class="logo">
-                        <a href="index.html">
-                            <img src="/v1/web/assets/images/plivraison.png" alt="img" style="
-    width: 140px;
-">
+                        <a href="{{ route('web.home') }}">
+                            <img src="/v1/web/assets/images/plivraison.png" alt="img"
+                                style="
+                                width: 140px;
+                            ">
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-7 col-sm-8 col-md-6 col-xs-5 col-ts-12">
                     <div class="block-search-block">
-                        <form class="form-search form-search-width-category">
+                        <form class="form-search form-search-width-category" action="{{ route('web.products') }}"
+                            data-no-controller=true method="get">
                             <div class="form-content">
-                                <div class="category">
-                                    <select title="cate" data-placeholder="All Categories" class="chosen-select"
+                                {{-- <div class="category">
+                                    <select title="cate" data-placeholder="All Categories" class="chosen-select" name="cate"
                                         tabindex="1">
                                         <option value="United States">Healthy</option>
                                         <option value="United Kingdom">Pumpkin</option>
@@ -66,10 +68,10 @@
                                         <option value="Albania">New Arrivals</option>
                                         <option value="Algeria">Lentils</option>
                                     </select>
-                                </div>
+                                </div> --}}
                                 <div class="inner">
-                                    <input type="text" class="input" name="s" value=""
-                                        placeholder="Search here">
+                                    <input type="text" class="input" name="q"
+                                        value="{{ request()->get('q') }}" placeholder="Rechercher un produit">
                                 </div>
                                 <button class="btn-search" type="submit">
                                     <span class="icon-search"></span>
@@ -280,63 +282,36 @@
                             <span></span>
                             <span></span>
                         </span>
-                        <span class="text">All Categories</span>
+                        <span class="text"
+                            style="
+                                    font-size: 12px;
+                                ">Toutes
+                            les catégories</span>
                     </div>
                     <div class="block-content verticalmenu-content">
                         <ul class="gnash-nav-vertical vertical-menu gnash-clone-mobile-menu">
-                            <li class="menu-item">
-                                <a href="#" class="gnash-menu-item-title" title="New Arrivals">New Arrivals</a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Hot Sale" href="#" class="gnash-menu-item-title">Hot Sale</a>
-                            </li>
-                            <li class="menu-item menu-item-has-children">
-                                <a title="Healthy" href="#" class="gnash-menu-item-title">Healthy</a>
-                                <span class="toggle-submenu"></span>
-                                <ul role="menu" class=" submenu">
-                                    <li class="menu-item">
-                                        <a title="Broccoli" href="#" class="gnash-item-title">Broccoli</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a title="Pumpkin" href="#" class="gnash-item-title">Pumpkin</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a title="New Arrivals" href="#" class="gnash-item-title">New
-                                            Arrivals</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a title="Healthy" href="#" class="gnash-item-title">Healthy</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a title="Lentils" href="#" class="gnash-item-title">Lentils</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Pumpkin" href="#" class="gnash-menu-item-title">Pumpkin</a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Leafy green" href="#" class="gnash-menu-item-title">Leafy green</a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Soybeans" href="#" class="gnash-menu-item-title">Soybeans</a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Cauliflower" href="#" class="gnash-menu-item-title">Cauliflower</a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Raw fruit" href="#" class="gnash-menu-item-title">Raw fruit</a>
-                            </li>
+                            @php
+                                use App\Models\Category;
+                                $categories = Category::all();
+                            @endphp
+                            @foreach ($categories as $category)
+                                <li class="menu-item">
+                                    <a href="{{ route('web.products', ['product_category_ids' => cryptID($category->id)]) }}"
+                                        class="gnash-menu-item-title"
+                                        title="{{ $category->name }}">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="header-nav">
                     <div class="container-wapper">
                         <ul class="gnash-clone-mobile-menu gnash-nav main-menu " id="menu-main-menu">
-                            <li class="menu-item  menu-item-has-children">
-                                <a href="index.html" class="gnash-menu-item-title" title="Home">Home</a>
+                            <li class="menu-item">
+                                <a href="{{ route('web.home') }}" class="gnash-menu-item-title"
+                                    title="Accueil">Accueil</a>
                                 <span class="toggle-submenu"></span>
-                                <ul class="submenu">
+                                {{-- <ul class="submenu">
                                     <li class="menu-item">
                                         <a href="index.html">Home 01</a>
                                     </li>
@@ -346,12 +321,50 @@
                                     <li class="menu-item">
                                         <a href="home3.html">Home 03</a>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </li>
-                            <li class="menu-item menu-item-has-children">
-                                <a href="gridproducts.html" class="gnash-menu-item-title" title="Shop">Shop</a>
+
+                            <li class="menu-item">
+                                <a href="{{ route('web.products') }}" class="gnash-menu-item-title"
+                                    title="Categories">Les Produits</a>
                                 <span class="toggle-submenu"></span>
-                                <ul class="submenu">
+                                {{-- <ul class="submenu">
+                                    <li class="menu-item menu-item-has-children">
+                                        <a href="#" class="gnash-menu-item-title" title="Blog Style">Blog
+                                            Style</a>
+                                        <span class="toggle-submenu"></span>
+                                        <ul class="submenu">
+                                            <li class="menu-item">
+                                                <a href="bloggrid.html">Grid</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="bloglist.html">List</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="bloglist-leftsidebar.html">List Sidebar</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children">
+                                        <a href="#" class="gnash-menu-item-title" title="Post Layout">Post
+                                            Layout</a>
+                                        <span class="toggle-submenu"></span>
+                                        <ul class="submenu">
+                                            <li class="menu-item">
+                                                <a href="inblog_left-siderbar.html">Left Sidebar</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="inblog_right-siderbar.html">Right Sidebar</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul> --}}
+                            </li>
+                            <li class="menu-item">
+                                <a href="gridproducts.html" class="gnash-menu-item-title"
+                                    title="Services">Services</a>
+                                <span class="toggle-submenu"></span>
+                                {{-- <ul class="submenu">
                                     <li class="menu-item">
                                         <a href="gridproducts.html">Grid Fullwidth</a>
                                     </li>
@@ -364,9 +377,9 @@
                                     <li class="menu-item">
                                         <a href="listproducts.html">List</a>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </li>
-                            <li class="menu-item  menu-item-has-children item-megamenu">
+                            {{-- <li class="menu-item  menu-item-has-children item-megamenu">
                                 <a href="#" class="gnash-menu-item-title" title="Pages">Pages</a>
                                 <span class="toggle-submenu"></span>
                                 <div class="submenu mega-menu menu-page">
@@ -418,12 +431,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                            <li class="menu-item  menu-item-has-children">
+                            </li> --}}
+                            <li class="menu-item">
                                 <a href="inblog_right-siderbar.html" class="gnash-menu-item-title"
-                                    title="Blogs">Blogs</a>
+                                    title="Categories">Categories</a>
                                 <span class="toggle-submenu"></span>
-                                <ul class="submenu">
+                                {{-- <ul class="submenu">
                                     <li class="menu-item menu-item-has-children">
                                         <a href="#" class="gnash-menu-item-title" title="Blog Style">Blog
                                             Style</a>
@@ -453,7 +466,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </li>
                             <li class="menu-item">
                                 <a href="about.html" class="gnash-menu-item-title" title="About">About</a>
