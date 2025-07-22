@@ -2068,7 +2068,7 @@ $("body").off("change", ".paginate_target");
 $("body").on("change", ".paginate_target", function (e) {
     e.preventDefault();
     let action = $(this).data("href");
-    let container_id = $(this).data("container");
+    let container_id = $(this).data("container"); 
     let perPage = $(this).val();
     showLoader();
     let headers = {}
