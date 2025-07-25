@@ -34,12 +34,33 @@ trait HasAttachment
             throw new Exception("Failed to delete attachment: " . $ex->getMessage(), 500);
         }
     }
+    public function deleteAttachments($fieldName = 'attachment')
+    {
+        try {
+            $attachments = Attachment::where('table_name', $this->getTable())
+                ->where('fk_id', $this->id)
+                ->where('field', $fieldName)
+                ->get();
+
+            foreach ($attachments as $attachment) {
+                // Delete the file from storage
+                Storage::disk('public')->delete($attachment->path);
+
+                // Delete the attachment record
+                $attachment->delete();
+            }
+
+            return true;
+        } catch (Exception $ex) {
+            throw new Exception("Failed to delete attachment: " . $ex->getMessage(), 500);
+        }
+    }
 
     public function updateAttachment($newAttachment, $fieldName = 'attachment', $is_personal = 0, $fileName = null)
     {
         try {
             // Delete existing attachment before adding a new one
-            $this->deleteAttachment($fieldName);
+            $this->deleteAttachments($fieldName);
 
             // Add new attachment
             return $this->addAttachment($newAttachment, $fieldName, $is_personal, $fileName);

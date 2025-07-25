@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->text('description')->nullable();
-            $table->string('price')->nullable();
-            $table->string('compare_price')->nullable();
+            $table->decimal('price', 10, 2)->nullable();
+            $table->decimal('compare_price', 10, 2)->nullable();
 
             $table->unsignedBigInteger('magasin_id')->nullable();
             $table->foreign('magasin_id')->references('id')->on('magasins')->onDelete('cascade');

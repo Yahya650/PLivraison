@@ -11,8 +11,14 @@ class Produit extends Model
 {
     use HasFactory, SoftDeletes, HasAttachment;
 
+    
 
 
+
+    public function category()
+    {
+        return $this->belongsTo(ProductCategory::class, 'category_id');
+    }
     public function magasin()
     {
         return $this->belongsTo(Magasin::class, 'magasin_id');

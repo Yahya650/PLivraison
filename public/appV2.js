@@ -1,5 +1,5 @@
-const global_selector = "#ManagmentCIFpro_modal";
-const global_selector_seccend = "#ManagmentCIFpro_modal2";
+const global_selector = "#Delivery_Guercif_modal";
+const global_selector_seccend = "#Delivery_Guercif_modal2";
 const global_search = "#global-modal-search";
 const alertType = 'swal';
 
@@ -2068,7 +2068,7 @@ $("body").off("change", ".paginate_target");
 $("body").on("change", ".paginate_target", function (e) {
     e.preventDefault();
     let action = $(this).data("href");
-    let container_id = $(this).data("container"); 
+    let container_id = $(this).data("container");
     let perPage = $(this).val();
     showLoader();
     let headers = {}
