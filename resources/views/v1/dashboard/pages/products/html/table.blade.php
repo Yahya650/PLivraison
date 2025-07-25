@@ -65,10 +65,10 @@
                         4.5</span> 55 Review</td> --}}
                 <td>
                     <div class="d-flex gap-2">
-                        <a href="#!" class="btn btn-light btn-sm anchor-modal" data-controller="ProductController"
+                        {{-- <a href="#!" class="btn btn-light btn-sm anchor-modal" data-controller="ProductController"
                             data-modal-title="Ajouter un Produit" data-href="{{ route('app.products.create') }}"
                             data-modal-size="modal-xl"><iconify-icon icon="solar:eye-broken"
-                                class="align-middle fs-18"></iconify-icon></a>
+                                class="align-middle fs-18"></iconify-icon></a> --}}
                         <a href="#!" class="btn btn-soft-primary btn-sm anchor-modal"
                             data-controller="ProductController" data-modal-title="{{ $product->name }} (Modifier)"
                             data-href="{{ route('app.products.edit', cryptID($product->id)) }}"
