@@ -1119,6 +1119,7 @@ $("body").on("click", ".anchor-message", function (e) {
     $(this).data("loading-message") ? showLoader($(this).data("loading-message")) : showLoader();
 
     e.preventDefault();
+    var current = $(this);
     let action = $(this).data("href");
     let method = $(this).data("method");
     let container_id = $(this).data("container");
@@ -1160,6 +1161,9 @@ $("body").on("click", ".anchor-message", function (e) {
                 }
                 if (container_id) {
                     $(container_id).html(response.html);
+                }
+                if (current.data("container1") && response.html1) {
+                    $(current.data("container1")).html(response.html1);
                 }
                 toast_success(response.message);
             }

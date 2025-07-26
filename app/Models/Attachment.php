@@ -12,7 +12,7 @@ class Attachment extends Model
     use HasFactory;
     use SoftDeletes;
 
-    const NO_IMAGE = '/assets/v1/dashboard/media/images/no-photo.png';
+    const NO_IMAGE = '/v1/dash/assets/images/no-photo.png';
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 

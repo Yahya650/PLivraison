@@ -18,19 +18,19 @@ class ProductController extends Controller
         $req = request();
         $products = Produit::query();
 
-        if ($req->input('search') != null) {
-            $searchTerm = "%" . $req->input('search') . "%";
-            $products->where(function ($query) use ($searchTerm) {
-                $query->where('title', 'LIKE', $searchTerm)
-                    ->orWhere('slug', 'LIKE', $searchTerm);
-            })
-                ->orWhereHas('pays', function ($query) use ($searchTerm) {
-                    $query->where('full_name', 'LIKE', $searchTerm);
-                })
-                ->orWhereHas('city', function ($query) use ($searchTerm) {
-                    $query->where('full_name', 'LIKE', $searchTerm);
-                });
-        }
+        // if ($req->input('search') != null) {
+        //     $searchTerm = "%" . $req->input('search') . "%";
+        //     $products->where(function ($query) use ($searchTerm) {
+        //         $query->where('title', 'LIKE', $searchTerm)
+        //             ->orWhere('slug', 'LIKE', $searchTerm);
+        //     })
+        //         ->orWhereHas('pays', function ($query) use ($searchTerm) {
+        //             $query->where('full_name', 'LIKE', $searchTerm);
+        //         })
+        //         ->orWhereHas('city', function ($query) use ($searchTerm) {
+        //             $query->where('full_name', 'LIKE', $searchTerm);
+        //         });
+        // }
 
         // if ($req->input('country_filter') != null) {
         //     $products->where('country_id', $req->input('country_filter'));
@@ -101,7 +101,6 @@ class ProductController extends Controller
             'images.*.max' => 'Les images de la produit doivent avoir une taille maximale de 2Mo.',
 
         ];
-
 
         // Validate the request
         $req->validate($rules, $messages);

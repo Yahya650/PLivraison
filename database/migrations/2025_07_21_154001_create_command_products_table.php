@@ -31,8 +31,10 @@ return new class extends Migration
 
             $table->integer('quantity')->nullable();
             $table->decimal('remise')->nullable();
-            $table->string('prix_remise')->nullable();
-            $table->decimal('total', 10, 2)->nullable();
+            $table->string('prix_remise')->nullable(); // prix_remise = unit_price - remise
+            $table->decimal('unit_price', 10, 2)->nullable();
+            $table->decimal('total', 10, 2)->nullable(); // total = quantity * unit_price
+            $table->decimal('total_remise', 10, 2)->nullable(); // total_remise = quantity * prix_remise
 
             $table->softDeletes();
             $table->timestamps();

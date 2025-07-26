@@ -34,7 +34,11 @@
                 </div> --}}
                 <ul class="header-user-links">
                     <li>
-                        <a href="login.html">vous connecter ou vous inscrire</a>
+                        @if (Auth::check())
+                            <a href="#">{{ Auth::user()->fullName() }}</a>
+                        @else
+                            <a href="{{ route('auth.login.get') }}">vous connecter ou vous inscrire</a>
+                        @endif
                     </li>
                 </ul>
             </div>

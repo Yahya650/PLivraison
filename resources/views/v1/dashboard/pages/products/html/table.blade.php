@@ -11,7 +11,7 @@
             <th>Price</th>
             {{-- <th>Stock</th> --}}
             <th>Type</th>
-            <th>Magazine</th>
+            <th>Magasine</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -51,13 +51,13 @@
 
                 </td>
                 <td>
-                    {{ $product->category->name }}
+                    {{ $product->category?->name }}
                     {{-- <p class="mb-1 text-muted"><span class="text-dark fw-medium">486 Item</span>
                         Left</p> --}}
                     {{-- <p class="mb-0 text-muted">155 Sold</p> --}}
                 </td>
                 <td>
-                    {{ $product->magasin->name }}
+                    {{ $product->magasin?->name }}
                 </td>
                 {{-- <td> Fashion</td>
                 <td> <span class="badge p-1 bg-light text-dark fs-12 me-1"><i
@@ -76,8 +76,7 @@
                                 class="align-middle fs-18"></iconify-icon></a>
                         <a href="#!" class="btn btn-soft-danger btn-sm anchor-delete"
                             data-href="{{ route('app.products.destroy', cryptID($product->id)) }}"
-                            data-container="#products" data-container="#products"><iconify-icon
-                                icon="solar:trash-bin-minimalistic-2-broken"
+                            data-container="#products"><iconify-icon icon="solar:trash-bin-minimalistic-2-broken"
                                 class="align-middle fs-18"></iconify-icon></a>
                     </div>
                 </td>

@@ -44,4 +44,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function fullName()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function avatar($show_no_image = true)
+    {
+        if ($avatar = $this->getLastAttachment('avatar'))
+            return $avatar->stream();
+
+        if ($show_no_image)
+            return Attachment::NO_IMAGE;
+    }
 }

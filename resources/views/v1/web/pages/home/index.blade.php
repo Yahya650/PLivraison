@@ -123,7 +123,7 @@
                                         <div class="flash">
                                             <span class="onnew">
                                                 <span class="text">
-                                                    {{ $product->magasin->name }}
+                                                    {{ $product->magasin?->name }}
                                                 </span>
                                             </span>
                                         </div>

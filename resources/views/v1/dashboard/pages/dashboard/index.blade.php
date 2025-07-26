@@ -22,17 +22,16 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="avatar-md bg-soft-primary rounded">
-                                            <iconify-icon icon="solar:cart-5-bold-duotone"
-                                                class="avatar-title fs-32 text-primary"></iconify-icon>
+                                            <i class="bx bx-award avatar-title fs-24 text-primary"></i>
                                         </div>
                                     </div> <!-- end col -->
                                     <div class="col-6 text-end">
-                                        <p class="text-muted mb-0 text-truncate">Total Orders</p>
-                                        <h3 class="text-dark mt-1 mb-0">13, 647</h3>
+                                        <p class="text-muted mb-0">Total des catégories</p>
+                                        <h3 class="text-dark mt-1 mb-0">{{ $categories->count() }}</h3>
                                     </div> <!-- end col -->
                                 </div> <!-- end row-->
                             </div> <!-- end card body -->
-                            <div class="card-footer py-2 bg-light bg-opacity-50">
+                            {{-- <div class="card-footer py-2 bg-light bg-opacity-50">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <div>
                                         <span class="text-success"> <i class="bx bxs-up-arrow fs-12"></i>
@@ -41,7 +40,7 @@
                                     </div>
                                     <a href="#!" class="text-reset fw-semibold fs-12">View More</a>
                                 </div>
-                            </div> <!-- end card body -->
+                            </div> <!-- end card body --> --}}
                         </div> <!-- end card -->
                     </div> <!-- end col -->
                     <div class="col-md-6">
@@ -50,16 +49,16 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="avatar-md bg-soft-primary rounded">
-                                            <i class="bx bx-award avatar-title fs-24 text-primary"></i>
+                                            <i class="bx  bx-package avatar-title text-primary fs-24"></i>
                                         </div>
                                     </div> <!-- end col -->
                                     <div class="col-6 text-end">
-                                        <p class="text-muted mb-0 text-truncate">New Leads</p>
-                                        <h3 class="text-dark mt-1 mb-0">9, 526</h3>
+                                        <p class="text-muted mb-0">Total des produits</p>
+                                        <h3 class="text-dark mt-1 mb-0">{{ $products->count() }}</h3>
                                     </div> <!-- end col -->
                                 </div> <!-- end row-->
                             </div> <!-- end card body -->
-                            <div class="card-footer py-2 bg-light bg-opacity-50">
+                            {{-- <div class="card-footer py-2 bg-light bg-opacity-50">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <div>
                                         <span class="text-success"> <i class="bx bxs-up-arrow fs-12"></i>
@@ -68,7 +67,7 @@
                                     </div>
                                     <a href="#!" class="text-reset fw-semibold fs-12">View More</a>
                                 </div>
-                            </div> <!-- end card body -->
+                            </div> <!-- end card body --> --}}
                         </div> <!-- end card -->
                     </div> <!-- end col -->
                     <div class="col-md-6">
@@ -77,16 +76,16 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="avatar-md bg-soft-primary rounded">
-                                            <i class="bx bxs-backpack avatar-title fs-24 text-primary"></i>
+                                            <i class="bx  bx-store-alt avatar-title text-primary fs-24"></i>
                                         </div>
                                     </div> <!-- end col -->
                                     <div class="col-6 text-end">
-                                        <p class="text-muted mb-0 text-truncate">Deals</p>
-                                        <h3 class="text-dark mt-1 mb-0">976</h3>
+                                        <p class="text-muted mb-0">Total des magasins</p>
+                                        <h3 class="text-dark mt-1 mb-0">{{ $magasins->count() }}</h3>
                                     </div> <!-- end col -->
                                 </div> <!-- end row-->
                             </div> <!-- end card body -->
-                            <div class="card-footer py-2 bg-light bg-opacity-50">
+                            {{-- <div class="card-footer py-2 bg-light bg-opacity-50">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <div>
                                         <span class="text-danger"> <i class="bx bxs-down-arrow fs-12"></i>
@@ -95,7 +94,7 @@
                                     </div>
                                     <a href="#!" class="text-reset fw-semibold fs-12">View More</a>
                                 </div>
-                            </div> <!-- end card body -->
+                            </div> <!-- end card body --> --}}
                         </div> <!-- end card -->
                     </div> <!-- end col -->
                     <div class="col-md-6">
@@ -104,16 +103,19 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="avatar-md bg-soft-primary rounded">
-                                            <i class="bx bx-dollar-circle avatar-title text-primary fs-24"></i>
+                                            {{-- <i class='bx  bx-store-alt'></i> --}}
+
+                                            <iconify-icon icon="solar:cart-5-bold-duotone"
+                                                class="avatar-title fs-32 text-primary"></iconify-icon>
                                         </div>
                                     </div> <!-- end col -->
                                     <div class="col-6 text-end">
-                                        <p class="text-muted mb-0 text-truncate">Booked Revenue</p>
-                                        <h3 class="text-dark mt-1 mb-0">$123.6k</h3>
+                                        <p class="text-muted mb-0">Commandes En attente</p>
+                                        <h3 class="text-dark mt-1 mb-0">{{ $commandesValid->count() }}</h3>
                                     </div> <!-- end col -->
                                 </div> <!-- end row-->
                             </div> <!-- end card body -->
-                            <div class="card-footer py-2 bg-light bg-opacity-50">
+                            {{-- <div class="card-footer py-2 bg-light bg-opacity-50">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <div>
                                         <span class="text-danger"> <i class="bx bxs-down-arrow fs-12"></i>
@@ -122,7 +124,7 @@
                                     </div>
                                     <a href="#!" class="text-reset fw-semibold fs-12">View More</a>
                                 </div>
-                            </div> <!-- end card body -->
+                            </div> <!-- end card body --> --}}
                         </div> <!-- end card -->
                     </div> <!-- end col -->
                 </div> <!-- end row -->

@@ -1,107 +1,58 @@
 <!DOCTYPE html>
+<html lang="en" class="h-100">
 
-<html lang="en">
-<!--begin::Head-->
+
+<!-- Mirrored from techzaa.in/larkon/admin/auth-signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jul 2025 16:44:58 GMT -->
 
 <head>
-    <title>Elearn - CIFpro | @yield('title')</title>
+    <!-- Title Meta -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="/assets/v1/dashboard/media/images/logo/favicon.png" />
+    <title>P-Livraison | @yield('title')</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully responsive premium admin dashboard template" />
+    <meta name="author" content="Techzaa" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!--begin::Fonts(mandatory for all pages)-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" /> <!--end::Fonts-->
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
 
+    <!-- Vendor css (Require in all Page) -->
+    <link href="/v1/dash/assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
 
-    <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-    <link href="/assets/v1/dashboard/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/v1/dashboard/css/style.bundle.css" rel="stylesheet" type="text/css" />
-    <!--end::Global Stylesheets Bundle-->
+    <!-- Icons css (Require in all Page) -->
+    <link href="/v1/dash/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
-    @yield('style')
+    <!-- App css (Require in all Page) -->
+    <link href="/v1/dash/assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
-    <script>
-        // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking)
-        if (window.top != window.self) {
-            window.top.location.replace(window.self.location.href);
-        }
-    </script>
+    <!-- Theme Config js (Require in all Page) -->
+    <script src="/v1/dash/assets/js/config.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 </head>
-<!--end::Head-->
 
-<!--begin::Body-->
+<body class="h-100">
+    @yield('content')
 
-<body id="kt_body" class="app-blank bgi-size-cover bgi-attachment-fixed bgi-position-center">
-    <!--begin::Theme mode setup on page load-->
-    <script>
-        var defaultThemeMode = "light";
-        var themeMode;
+    <!-- Vendor Javascript (Require in all Page) -->
+    <script src="/v1/dash/assets/js/vendor.js"></script>
 
-        if (document.documentElement) {
-            if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
-                themeMode = document.documentElement.getAttribute("data-bs-theme-mode");
-            } else {
-                if (localStorage.getItem("data-bs-theme") !== null) {
-                    themeMode = localStorage.getItem("data-bs-theme");
-                } else {
-                    themeMode = defaultThemeMode;
-                }
-            }
+    <!-- App Javascript (Require in all Page) -->
+    <script src="/v1/dash/assets/js/app.js"></script>
 
-            if (themeMode === "system") {
-                themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-            }
-
-            document.documentElement.setAttribute("data-bs-theme", themeMode);
-        }
-    </script>
-    <!--end::Theme mode setup on page load-->
-
-    <!--begin::Root-->
-    <div class="d-flex flex-column flex-root" id="kt_app_root">
-        <!--begin::Page bg image-->
-        <style>
-            body {
-                background-image: url('/assets/v1/dashboard/media/auth/bg10.jpg');
-            }
-
-            [data-bs-theme="dark"] body {
-                background-image: url('/assets/v1/dashboard/media/auth/bg10-dark.jpg');
-            }
-        </style>
-        <!--end::Page bg image-->
-
-        <!--begin::Authentication - Sign-in -->
-        <div class="d-flex flex-column flex-lg-row flex-column-fluid">
-            @yield('content')
-        </div>
-        <!--end::Authentication - Sign-in-->
-    </div>
-    <!--end::Root-->
-
-    <!--begin::Javascript-->
-    <script>
-        var hostUrl = "/assets/v1/dashboard/index.html";
-    </script>
-
-    <!--begin::Global Javascript Bundle(mandatory for all pages)-->
-    <script src="/assets/v1/dashboard/plugins/global/plugins.bundle.js"></script>
-    <script src="/assets/v1/dashboard/js/scripts.bundle.js"></script>
-    <!--end::Global Javascript Bundle-->
-
-
-    <!--begin::Custom Javascript(used for this page only)-->
-    <script src="/assets/v1/dashboard/js/custom/authentication/sign-in/general.js"></script>
-    <!--end::Custom Javascript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://malsup.github.io/jquery.blockUI.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ '/appV2.js?v=' . time() }}"></script>
-    <!--end::Javascript-->
-    @yield('script')
 
 </body>
-<!--end::Body-->
 
-<!-- Mirrored from preview.keenthemes.com/metronic8/demo1/authentication/layouts/overlay/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Mar 2025 15:45:45 GMT -->
+
+<!-- Mirrored from techzaa.in/larkon/admin/auth-signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jul 2025 16:44:58 GMT -->
 
 </html>

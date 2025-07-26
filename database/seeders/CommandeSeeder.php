@@ -2,15 +2,24 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Models\Commande;
 use App\Models\User;
+use App\Models\Commande;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CommandeSeeder extends Seeder
 {
     public function run(): void
     {
+
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Commande::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+
+
         $faker = Faker::create();
         $clients = User::role('client')->get();
 

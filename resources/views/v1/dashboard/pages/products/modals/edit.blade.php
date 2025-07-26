@@ -30,7 +30,8 @@
         "magasin_id",
         "price",
         "compare_price",
-        "description"
+        "description",
+        "images"
     ]'>
 
     @method('PUT')
@@ -77,8 +78,8 @@
                 </div>
                 <div class="col-lg-4">
                     <div>
-                        <label for="magazines" class="form-label">les magazines</label>
-                        <select class="form-control" id="magazines" data-choices data-choices-groups
+                        <label for="Magasines" class="form-label">les Magasines</label>
+                        <select class="form-control" id="Magasines" data-choices data-choices-groups
                             data-placeholder="Select Categorie" name="magasin_id">
                             <option value="">Choise a categorie</option>
                             @foreach ($magasins as $magasin)

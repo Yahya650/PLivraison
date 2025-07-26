@@ -3,259 +3,86 @@
 @section('title', 'Login')
 
 @section('content')
-    {{-- <!--begin::Aside-->
-    <div class="d-flex flex-lg-row-fluid">
-        <!--begin::Content-->
-        <div class="d-flex flex-column flex-center pb-0 pb-lg-10 p-10 w-100">
-            <!--begin::Image-->
-            <img class="theme-light-show mx-auto mw-100 w-150px w-lg-300px mb-10 mb-lg-20"
-                src="/assets/v1/dashboard/media/auth/agency.png" alt="" />
-            <img class="theme-dark-show mx-auto mw-100 w-150px w-lg-300px mb-10 mb-lg-20"
-                src="/assets/v1/dashboard/media/auth/agency-dark.png" alt="" />
-            <!--end::Image-->
+    <div class="d-flex flex-column h-100 p-3">
+        <div class="d-flex flex-column flex-grow-1">
+            <div class="row h-100">
+                <div class="col-xxl-12">
+                    <div class="row justify-content-center h-100">
+                        <div class="col-lg-6 py-lg-5">
+                            <div class="d-flex flex-column h-100 justify-content-center">
+                                <div class="auth-logo mb-4">
+                                    <a href="{{ route('web.home') }}" class="logo-dark">
+                                        <img src="/v1/web/assets/images/plivraison.png" height="24" alt="logo dark">
+                                    </a>
 
-            <!--begin::Title-->
-            <h1 class="text-gray-800 fs-2qx fw-bold text-center mb-7">
-                Fast, Efficient and Productive
-            </h1>
-            <!--end::Title-->
+                                    <a href="{{ route('web.home') }}" class="logo-light">
+                                        <img src="/v1/web/assets/images/plivraison.png" height="24" alt="logo light">
+                                    </a>
+                                </div>
 
-            <!--begin::Text-->
-            <div class="text-gray-600 fs-base text-center fw-semibold">
-                In this kind of post, <a href="#" class="opacity-75-hover text-primary me-1">the
-                    blogger</a>
+                                <h2 class="fw-bold fs-24">Connectez-vous</h2>
 
-                introduces a person they’ve interviewed <br /> and provides some background information about
+                                <p class="text-muted mt-1 mb-4">Entrez votre adresse e-mail et mot de passe pour accéder
+                                    panneau d’administration.</p>
 
-                <a href="#" class="opacity-75-hover text-primary me-1">the interviewee</a>
-                and their <br /> work following this is a transcript of the interview.
-            </div>
-            <!--end::Text-->
-        </div>
-        <!--end::Content-->
-    </div>
-    <!--begin::Aside--> --}}
+                                <div class="mb-5">
+                                    <form action="{{ route('auth.login.post') }}" method="POST" data-no-controller="true"
+                                        data-wait-button="#wait-button" data-names-list='["email", "password"]'
+                                        class="authentication-form form-store">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="email">Email</label>
+                                            <input type="email" id="email" name="email" class="form-control bg-"
+                                                placeholder="Enter your email">
+                                        </div>
+                                        <div class="mb-3">
+                                            {{-- <a href="auth-password.html"
+                                                class="float-end text-muted text-unline-dashed ms-1">Reset
+                                                password</a> --}}
+                                            <label class="form-label" for="password">Mot de passe</label>
+                                            <input type="password" id="password" class="form-control" name="password"
+                                                placeholder="Enter your password">
+                                        </div>
+                                        {{-- <div class="mb-3">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox-signin">
+                                                <label class="form-check-label" for="checkbox-signin">Remember
+                                                    me</label>
+                                            </div>
+                                        </div> --}}
 
-    <!--begin::Body-->
-    <div class="w-100 d-flex flex-column-fluid flex-lg-row-auto justify-content-center p-12">
-        <!--begin::Wrapper-->
-        <div class="bg-body d-flex flex-column flex-center rounded-4 w-md-600px p-10">
-            <!--begin::Content-->
-            <div class="d-flex flex-center flex-column align-items-stretch h-lg-100 w-md-400px">
-                <!--begin::Wrapper-->
-                <div class="d-flex flex-center flex-column flex-column-fluid pb-15 pb-lg-20">
+                                        <div class="mb-1 text-center d-grid">
+                                            <button class="btn btn-soft-primary" type="submit"
+                                                id="wait-button">connectez-vous</button>
+                                        </div>
+                                    </form>
 
-                    <!--begin::Form-->
-                    <form class="form-store w-100" action="{{ route('auth.login.post') }}" data-no-controller="true"
-                        method="POST" data-wait-button="#wait-button-add" data-names-list='["user_name", "password"]'>
-                        {{-- <!--begin::Heading-->
-                        <div class="text-center mb-11">
-                            <!--begin::Title-->
-                            <h1 class="text-gray-900 fw-bolder mb-3">
-                                Sign In
-                            </h1>
-                            <!--end::Title-->
+                                    {{-- <p class="mt-3 fw-semibold no-span">OR sign with</p>
 
-                            <!--begin::Subtitle-->
-                            <div class="text-gray-500 fw-semibold fs-6">
-                                Your Social Campaigns
+                                    <div class="d-grid gap-2">
+                                        <a href="javascript:void(0);" class="btn btn-soft-dark"><i
+                                                class="bx bxl-google fs-20 me-1"></i> Sign in with
+                                            Google</a>
+                                        <a href="javascript:void(0);" class="btn btn-soft-primary"><i
+                                                class="bx bxl-facebook fs-20 me-1"></i> Sign in with
+                                            Facebook</a>
+                                    </div> --}}
+                                </div>
+
+                                {{-- <p class="text-danger text-center">Don't have an account? <a href="auth-signup.html"
+                                        class="text-dark fw-bold ms-1">Sign Up</a></p> --}}
                             </div>
-                            <!--end::Subtitle--->
                         </div>
-                        <!--begin::Heading--> --}}
-
-                        <!--begin::Login options-->
-                        <div class="row g-3 mb-0">
-
-
-                            <!--begin::Col-->
-                            <div class="col-md-12 d-flex justify-content-center ">
-                                <!--begin::Google link--->
-                                <img src="/assets/v1/dashboard/media/images/logo/logo.png" alt="{{ env('APP_NAME') }}">
-                                <!--end::Google link--->
-                            </div>
-                            <!--end::Col-->
-
-                            <!--begin::Col-->
-                            <div class="col-md-12">
-                                <!--begin::Google link--->
-                                <p class="text text-center"> </p>
-                                {{-- <a href="#" class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100">
-                                </a> --}}
-                                <!--end::Google link--->
-                            </div>
-                            <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-md-12">
-                                <!--begin::Google link--->
-                                <p class="text text-center">
-                                    Veuillez vous connecter pour accéder à votre espace personnalisé
-                                </p>
-                                {{-- <a href="#" class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100">
-                                </a> --}}
-                                <!--end::Google link--->
-                            </div>
-                            <!--end::Col-->
-
-                        </div>
-                        <!--end::Login options-->
-
-                        <!--begin::Separator-->
-                        <div class="separator separator-content my-5">
-                            <span class="w-125px text-gray-500 fw-semibold fs-7">Bienvenue</span>
-                        </div>
-                        <!--end::Separator-->
-
-                        <!--begin::Input group--->
-                        <div class="fv-row mb-8">
-                            <!--begin::Email-->
-                            <input type="text" placeholder="Nom d'utilisateur" name="user_name" autocomplete="off"
-                                class="form-control bg-transparent" />
-                            <!--end::Email-->
-                        </div>
-
-                        <!--end::Input group--->
-                        <div class="fv-row mb-3">
-                            <!--begin::Password-->
-                            <input type="password" placeholder="Mot de passe" name="password" autocomplete="off"
-                                class="form-control bg-transparent" />
-                            <!--end::Password-->
-                        </div>
-                        <!--end::Input group--->
-
-                        <!--begin::Wrapper-->
-                        {{-- <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
-                            <div></div>
-
-                            <!--begin::Link-->
-                            <a href="reset-password.html" class="link-primary">
-                                Forgot Password ?
-                            </a>
-                            <!--end::Link-->
-                        </div> --}}
-                        <!--end::Wrapper-->
-
-                        <!--begin::Submit button-->
-                        <div class="d-grid mb-10">
-                            <button type="submit" id="wait-button-add" class="btn btn-primary">
-                                <!--begin::Indicator label-->
-                                <span class="indicator-label">
-                                    Sign In
-                                </span>
-                                <!--end::Indicator label-->
-                            </button>
-                        </div>
-                        <!--end::Submit button-->
-
-                        <!--begin::Sign up-->
-                        {{-- <div class="text-gray-500 text-center fw-semibold fs-6">
-                            Not a Member yet?
-
-                            <a href="sign-up.html" class="link-primary">
-                                Sign up
-                            </a>
-                        </div> --}}
-                        <!--end::Sign up-->
-                    </form>
-                    <!--end::Form-->
-
+                    </div>
                 </div>
-                <!--end::Wrapper-->
 
-                <!--begin::Footer-->
-                {{-- <div class=" d-flex flex-stack">
-                    <!--begin::Languages-->
-                    <div class="me-10">
-                        <!--begin::Toggle-->
-                        <button class="btn btn-flex btn-link btn-color-gray-700 btn-active-color-primary rotate fs-base"
-                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
-                            data-kt-menu-offset="0px, 0px">
-                            <img data-kt-element="current-lang-flag" class="w-20px h-20px rounded me-3"
-                                src="/assets/v1/dashboard/media/flags/united-states.svg" alt="" />
-
-                            <span data-kt-element="current-lang-name" class="me-1">English</span>
-
-                            <i class="ki-duotone ki-down fs-5 text-muted rotate-180 m-0"></i> </button>
-                        <!--end::Toggle-->
-
-                        <!--begin::Menu-->
-                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-4 fs-7"
-                            data-kt-menu="true" id="kt_auth_lang_menu">
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="#" class="menu-link d-flex px-5" data-kt-lang="English">
-                                    <span class="symbol symbol-20px me-4">
-                                        <img data-kt-element="lang-flag" class="rounded-1"
-                                            src="/assets/v1/dashboard/media/flags/united-states.svg" alt="" />
-                                    </span>
-                                    <span data-kt-element="lang-name">English</span>
-                                </a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="#" class="menu-link d-flex px-5" data-kt-lang="Spanish">
-                                    <span class="symbol symbol-20px me-4">
-                                        <img data-kt-element="lang-flag" class="rounded-1"
-                                            src="/assets/v1/dashboard/media/flags/spain.svg" alt="" />
-                                    </span>
-                                    <span data-kt-element="lang-name">Spanish</span>
-                                </a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="#" class="menu-link d-flex px-5" data-kt-lang="German">
-                                    <span class="symbol symbol-20px me-4">
-                                        <img data-kt-element="lang-flag" class="rounded-1"
-                                            src="/assets/v1/dashboard/media/flags/germany.svg" alt="" />
-                                    </span>
-                                    <span data-kt-element="lang-name">German</span>
-                                </a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="#" class="menu-link d-flex px-5" data-kt-lang="Japanese">
-                                    <span class="symbol symbol-20px me-4">
-                                        <img data-kt-element="lang-flag" class="rounded-1"
-                                            src="/assets/v1/dashboard/media/flags/japan.svg" alt="" />
-                                    </span>
-                                    <span data-kt-element="lang-name">Japanese</span>
-                                </a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="#" class="menu-link d-flex px-5" data-kt-lang="French">
-                                    <span class="symbol symbol-20px me-4">
-                                        <img data-kt-element="lang-flag" class="rounded-1"
-                                            src="/assets/v1/dashboard/media/flags/france.svg" alt="" />
-                                    </span>
-                                    <span data-kt-element="lang-name">French</span>
-                                </a>
-                            </div>
-                            <!--end::Menu item-->
+                {{-- <div class="col-xxl-5 d-none d-xxl-flex">
+                    <div class="card h-100 mb-0 overflow-hidden">
+                        <div class="d-flex flex-column h-100">
+                            <img src="/v1/dash/assets/images/small/img-10.jpg" alt="" class="w-100 h-100">
                         </div>
-                        <!--end::Menu-->
                     </div>
-                    <!--end::Languages-->
-
-                    <!--begin::Links-->
-                    <div class="d-flex fw-semibold text-primary fs-base gap-5">
-                        <a href="../../../pages/team.html" target="_blank">Terms</a>
-
-                        <a href="../../../pages/pricing/column.html" target="_blank">Plans</a>
-
-                        <a href="../../../pages/contact.html" target="_blank">Contact Us</a>
-                    </div>
-                    <!--end::Links-->
                 </div> --}}
-                <!--end::Footer-->
             </div>
-            <!--end::Content-->
         </div>
-        <!--end::Wrapper-->
     </div>
-    <!--end::Body-->
 @endsection
