@@ -11,8 +11,8 @@
             <th>NBR PR</th>
             <th>adresse</th>
             <th>province</th>
-            <th>total</th>
             <th>Prix de livraison</th>
+            <th>Total</th>
             <th>Status</th>
             <th>Action</th>
         </tr>
@@ -28,8 +28,8 @@
                                 class="avatar-md rounded rounded-2">
                         </div> --}}
                         <div>
-                            <a href="#!" class="text-dark fw-medium fs-15">{{ $command->client->fullName() }}</a>
-                            <p class="text-muted mb-0 mt-1 fs-13"><span>Tél : </span>{{ $command->client->phone_number }}
+                            <a href="#!" class="text-dark fw-medium fs-15">{{ $command->full_name }}</a>
+                            <p class="text-muted mb-0 mt-1 fs-13"><span>Tél : </span>{{ $command->phone_number }}
                             </p>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                     {{ $command->province }}
                 </td>
                 <td>
-                    {{ $command->delivery_price . ' MAD' }}
+                    {{ $command->delivery_price ?? 0     . ' MAD' }}
                 </td>
                 <td>
                     {{ $command->total() . ' MAD' }}
@@ -57,8 +57,9 @@
                     <div class="d-flex gap-2">
                         <a href="#!" class="btn btn-light btn-sm anchor-modal" data-controller="CommandController"
                             data-modal-title="Voir les details de la commande"
-                            data-href="{{ route('app.commands.show', cryptID($command->id)) }}" data-modal-size="modal-fullscreen"><iconify-icon
-                                icon="solar:eye-broken" class="align-middle fs-18"></iconify-icon></a>
+                            data-href="{{ route('app.commands.show', cryptID($command->id)) }}"
+                            data-modal-size="modal-fullscreen"><iconify-icon icon="solar:eye-broken"
+                                class="align-middle fs-18"></iconify-icon></a>
                         {{-- <a href="#!" class="btn btn-soft-primary btn-sm anchor-modal"
                             data-controller="CommandController" data-modal-title="{{ $command->name }} (Modifier)"
                             data-href="{{ route('app.commands.edit', cryptID($command->id)) }}"

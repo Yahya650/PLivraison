@@ -33,6 +33,6 @@ class Commande extends Model
     }
     public function total()
     {
-        return $this->products()->sum('total_remise') + $this->delivery_price;
+        return $this->products()->sum('total') - $this->discount() + $this->delivery_price;
     }
 }

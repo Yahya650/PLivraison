@@ -113,7 +113,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            <div class="widget widget_filter_price">
+                            {{-- <div class="widget widget_filter_price">
                                 <h4 class="widgettitle">
                                     Price
                                 </h4>
@@ -126,7 +126,7 @@
                                         <span class="to">MAD215</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="widget widget-brand">
                                 <h3 class="widgettitle">Les Types de Produits</h3>
                                 <ul class="list-brand">

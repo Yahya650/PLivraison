@@ -94,7 +94,7 @@ class AuthController extends Controller
         if ($user && Hash::check($req->password, $user->password)) {
             // Connexion de l'useristrateur
             auth()->logout();
-            session()->flush();
+            // session()->flush();
             Auth::login($user);
 
 

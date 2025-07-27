@@ -25,12 +25,28 @@ use App\Http\Controllers\v1\dashboard\ProductCategoryController;
 
 
 Route::group(['as' => 'web.'], function () {
+
+    // Pages
     Route::get('/', [WebController::class, 'home'])->name('home');
     Route::get('/products', [WebController::class, 'products'])->name('products');
-    Route::post('/panier/ajouter', [PanierController::class, 'add'])->name('panier.add');
-    // Route::get('/products/add-to-cart', [WebController::class, 'AddToCart'])->name('add.to.cart');
     Route::get('/products/{slug}', [WebController::class, 'product'])->name('product');
-    Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
+
+    // Checkout
+    Route::get('/checkout', [WebController::class, 'checkout'])->name('checkout');
+    Route::post('/checkout', [WebController::class, 'checkoutPost'])->name('checkout.post');
+    Route::get('/thankyou', [WebController::class, 'thankyou'])->name('thankyou');
+
+    // Panier (Cart)
+    Route::prefix('panier')->group(function () {
+        Route::get('/', [WebController::class, 'panier'])->name('panier');
+        Route::post('/change-quantity', [WebController::class, 'changeQuantity'])->name('panier.change.quantity');
+        Route::post('/delete', [WebController::class, 'delete'])->name('panier.delete');
+        Route::post('/ajouter', [PanierController::class, 'add'])->name('panier.add');
+        Route::post('/clear', [WebController::class, 'clear'])->name('panier.clear');
+    });
+
+    // Web Auth routes
+    Route::prefix('auth')->as('auth.')->group(function () {
         Route::get('/client-login', [AuthController::class, 'getWebLogin'])->name('login.get');
         Route::post('/client-register', [AuthController::class, 'register'])->name('register.post');
     });

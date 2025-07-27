@@ -45,9 +45,12 @@
                                             </td>
                                             <td>{{ $product->pivot->unit_price . ' MAD' }}</td>
                                             <td>{{ $product->pivot->quantity }}</td>
-                                            <td>{{ $product->pivot->remise . ' MAD' }}</td>
+                                            <td>{{ $product->pivot->remise . ' MAD' }}
+                                                (-
+                                                {{ calculateDiscountPercentage($product->pivot->remise, $product->pivot->unit_price) . ' %' }})
+                                            </td>
                                             <td>{{ $product->pivot->prix_remise . ' MAD' }}</td>
-                                            <td>{{ $product->pivot->total_remise . ' MAD' }}</td>
+                                            <td>{{ $product->pivot->total . ' MAD' }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -284,7 +287,8 @@
                                             class="align-middle"></iconify-icon> frais de livraison :
                                     </p>
                                 </td>
-                                <td class="text-end text-dark fw-medium px-0">{{ $command->delivery_price . ' MAD' }}
+                                <td class="text-end text-dark fw-medium px-0">
+                                    {{ $command->delivery_price ?? 0 . ' MAD' }}
                                 </td>
                             </tr>
                             {{-- <tr>
@@ -342,12 +346,12 @@
             </div>
             <div class="card-body">
                 <div class="d-flex align-items-center gap-2">
-                    <img src="{{ $command->client->avatar() }}" alt=""
+                    <img src="{{ $command->client?->avatar() }}" alt=""
                         class="avatar rounded-3 border border-light border-3">
                     <div>
-                        <p class="mb-1">{{ $command->client->fullName() }}</p>
-                        <a href="mailto:{{ $command->client->email }}"
-                            class="link-primary fw-medium">{{ $command->client->email }}</a>
+                        <p class="mb-1">{{ $command->full_name }}</p>
+                        <a href="mailto:{{ $command->client?->email }}"
+                            class="link-primary fw-medium">{{ $command->client?->email }}</a>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between mt-3">
@@ -356,7 +360,7 @@
                         <a href="#!"><i class='bx bx-edit-alt fs-18'></i></a>
                     </div> --}}
                 </div>
-                <p class="mb-1">{{ $command->client->phone_number }}</p>
+                <p class="mb-1">{{ $command->phone_number }}</p>
 
                 <div class="d-flex justify-content-between mt-3">
                     <h5 class="">Adresse de livraison</h5>
@@ -366,9 +370,9 @@
                 </div>
 
                 <div>
-                    <p class="mb-1">{{ $command->quartier }} ,</p>
-                    <p class="mb-1">{{ $command->adresse }} ,</p>
-                    <p class="mb-1">{{ $command->province }} ,</p>
+                    <p class="mb-1"><b>Quartier :</b> {{ $command->quartier ?? 'N/A' }} ,</p>
+                    <p class="mb-1"><b>Adresse :</b> {{ $command->adresse ?? 'N/A' }} ,</p>
+                    <p class="mb-1"><b>Province/communauté :</b> {{ $command->province ?? 'N/A' }} ,</p>
                     <p class="mb-1">Maroc</p>
                 </div>
 

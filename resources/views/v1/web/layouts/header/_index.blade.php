@@ -35,11 +35,11 @@
                 <ul class="header-user-links">
                     <li>
                         @if (Auth::check())
-                            <a href="#">{{ Auth::user()->fullName() }}</a>
+                            {{-- <a href="#">{{ Auth::user()->fullName() }}</a>
                             /
-                            <a href="{{ route('auth.logout') }}">se d&eacute;connecter</a>
-                        @else
-                            <a href="{{ route('web.auth.login.get') }}">vous connecter ou vous inscrire</a>
+                            <a href="{{ route('auth.logout') }}">se d&eacute;connecter</a> --}}
+                            {{-- @else
+                            <a href="{{ route('auth.login.get') }}">vous connecter ou vous inscrire</a> --}}
                         @endif
                     </li>
                 </ul>
@@ -86,7 +86,7 @@
                         </form>
                     </div>
                 </div>
-                <div id="panier-items">
+                <div id="panier-items" class="panier-items">
                     @include('v1.web.layouts.header.components.panier')
                 </div>
             </div>

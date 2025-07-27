@@ -125,17 +125,31 @@
                                                 Size Chart</a>
                                         </div>
                                     </div> --}}
-                                <div class="quantity-add-to-cart">
-                                    <div class="quantity">
+                                <form class="quantity-add-to-cart form-store " style="display: flex"
+                                    action="{{ route('web.panier.add') }}" method="POST" data-container="#panier-items"
+                                    data-no-controller="true"
+                                    data-names-list='[
+                        "product_id", "quantity" ]'
+                                    style="
+                    ">
+                                    <div class="quantity" style="
+                    ">
+                                        <input type="hidden" name="product_id" value="{{ cryptID($product->id) }}">
+
                                         <div class="control">
                                             <a class="btn-number qtyminus quantity-minus" href="#">-</a>
-                                            <input type="text" data-step="1" data-min="0" value="1"
-                                                title="Qty" class="input-qty qty" size="4">
+                                            <input type="text" name="quantity" data-step="1" data-min="0"
+                                                value="1" title="Qty" min="1" class="input-qty qty"
+                                                size="4">
                                             <a href="#" class="btn-number qtyplus quantity-plus">+</a>
                                         </div>
                                     </div>
-                                    <button class="single_add_to_cart_button button">Add to cart</button>
-                                </div>
+                                    <div>
+                                        <button class="single_add_to_cart_button button" type="submit"
+                                            id="wait-button-add">Add to
+                                            cart</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

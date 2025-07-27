@@ -21,6 +21,7 @@ function generateCustomId(int $modelId, string $prefix = 'I', int $startFrom = 5
 
 function calculateDiscountPercentage($price, $comparePrice): ?float
 {
+
     // Prevent division by zero
     if (!$comparePrice || $comparePrice == 0) {
         return null;
@@ -261,6 +262,28 @@ function Dha($additions = []): array
             }
         }
     }
+
+    return $default_http;
+}
+
+
+function DefaultHttpArguments($additions = []): array
+{
+    $default_http = [];
+    $has_extra_args = array_key_exists('export', $additions) || array_key_exists('page', $additions);
+    foreach ($additions as $name => $addition) {
+        $default_http[$name] = $addition;
+    }
+
+    // if ($has_extra_args) {
+    foreach (request()->all() as $name => $addition) {
+        if ($name != '_token' && $name != 'role_id') {
+            $default_http[$name] = $addition;
+        }
+    }
+    // }
+
+    // dd(request()->query());
 
     return $default_http;
 }
