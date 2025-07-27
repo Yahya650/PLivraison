@@ -277,7 +277,7 @@
                                     </p>
                                 </td>
                                 <td class="text-end text-dark fw-medium px-0">
-                                    -{{ $command->discount() . ' MAD' }}
+                                    {{ $command->discount() . ' MAD' }}
                                 </td>
                             </tr>
                             <tr>

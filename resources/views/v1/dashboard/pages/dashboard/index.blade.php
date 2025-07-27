@@ -7,7 +7,7 @@
 
         <!-- Start here.... -->
         <div class="row">
-            <div class="col-xxl-5">
+            <div class="col-xxl-12">
                 <div class="row">
                     <div class="col-12">
                         <div class="alert alert-primary text-truncate mb-3" role="alert">
@@ -16,7 +16,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="card overflow-hidden">
                             <div class="card-body">
                                 <div class="row">
@@ -43,7 +43,7 @@
                             </div> <!-- end card body --> --}}
                         </div> <!-- end card -->
                     </div> <!-- end col -->
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="card overflow-hidden">
                             <div class="card-body">
                                 <div class="row">
@@ -69,8 +69,8 @@
                                 </div>
                             </div> <!-- end card body --> --}}
                         </div> <!-- end card -->
-                    </div> <!-- end col -->
-                    <div class="col-md-6">
+                    </div> <!-- end col4-->
+                    <div class="col-md-3">
                         <div class="card overflow-hidden">
                             <div class="card-body">
                                 <div class="row">
@@ -97,7 +97,7 @@
                             </div> <!-- end card body --> --}}
                         </div> <!-- end card -->
                     </div> <!-- end col -->
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="card overflow-hidden">
                             <div class="card-body">
                                 <div class="row">
@@ -130,7 +130,7 @@
                 </div> <!-- end row -->
             </div> <!-- end col -->
 
-            <div class="col-xxl-7">
+            {{-- <div class="col-xxl-7">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
@@ -148,11 +148,11 @@
                         </div>
                     </div> <!-- end card body -->
                 </div> <!-- end card -->
-            </div> <!-- end col -->
+            </div> <!-- end col --> --}}
         </div> <!-- end row -->
 
         <div class="row">
-            <div class="col-lg-4">
+            {{-- <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Conversions</h5>
@@ -329,7 +329,7 @@
                         </div>
                     </div> <!-- end card body -->
                 </div> <!-- end card-->
-            </div> <!-- end col-->
+            </div> <!-- end col--> --}}
         </div> <!-- end row -->
 
         <div class="row">
@@ -338,11 +338,11 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
                             <h4 class="card-title">
-                                Recent Orders
+                                Commandes récentes
                             </h4>
 
-                            <a href="#!" class="btn btn-sm btn-soft-primary">
-                                <i class="bx bx-plus me-1"></i>Create Order
+                            <a href="{{ route('app.commands.index') }}" class="btn btn-sm btn-soft-primary">
+                                Tout les commandes
                             </a>
                         </div>
                     </div>
@@ -351,147 +351,58 @@
                         <table class="table mb-0">
                             <thead class="bg-light bg-opacity-50">
                                 <tr>
-                                    <th class="ps-3">
-                                        Order ID.
-                                    </th>
-                                    <th>
-                                        Date
-                                    </th>
-                                    <th>
-                                        Product
-                                    </th>
-                                    <th>
-                                        Customer Name
-                                    </th>
-                                    <th>
-                                        Email ID
-                                    </th>
-                                    <th>
-                                        Phone No.
-                                    </th>
-                                    <th>
-                                        Address
-                                    </th>
-                                    <th>
-                                        Payment Type
-                                    </th>
-                                    <th>
-                                        Status
-                                    </th>
+                                    <th>Date</th>
+                                    <th>Produit</th>
+                                    <th>Nom du client</th>
+                                    <th>Email</th>
+                                    <th>Téléphone</th>
+                                    <th>Adresse</th>
+                                    <th>Type de paiement</th>
+                                    <th>Statut</th>
                                 </tr>
                             </thead>
-                            <!-- end thead-->
                             <tbody>
-                                <tr>
-                                    <td class="ps-3">
-                                        <a href="order-detail.html">#RB5625</a>
-                                    </td>
-                                    <td>29 April 2024</td>
-                                    <td>
-                                        <img src="/v1/dash/assets/images/products/product-1(1).png" alt="product-1(1)"
-                                            class="img-fluid avatar-sm">
-                                    </td>
-                                    <td>
-                                        <a href="#!">Anna M. Hines</a>
-                                    </td>
-                                    <td>anna.hines@mail.com</td>
-                                    <td>(+1)-555-1564-261</td>
-                                    <td>Burr Ridge/Illinois</td>
-                                    <td>Credit Card</td>
-                                    <td>
-                                        <i class="bx bxs-circle text-success me-1"></i>Completed
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="ps-3">
-                                        <a href="order-detail.html">#RB9652</a>
-                                    </td>
-                                    <td>25 April 2024</td>
-                                    <td>
-                                        <img src="/v1/dash/assets/images/products/product-4.png" alt="product-4"
-                                            class="img-fluid avatar-sm">
-                                    </td>
-                                    <td>
-                                        <a href="#!">Judith H. Fritsche</a>
-                                    </td>
-                                    <td>judith.fritsche.com</td>
-                                    <td>(+57)-305-5579-759</td>
-                                    <td>SULLIVAN/Kentucky</td>
-                                    <td>Credit Card</td>
-                                    <td>
-                                        <i class="bx bxs-circle text-success me-1"></i>Completed
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="ps-3">
-                                        <a href="order-detail.html">#RB5984</a>
-                                    </td>
-                                    <td>25 April 2024</td>
-                                    <td>
-                                        <img src="/v1/dash/assets/images/products/product-5.png" alt="product-5"
-                                            class="img-fluid avatar-sm">
-                                    </td>
-                                    <td>
-                                        <a href="#!">Peter T. Smith</a>
-                                    </td>
-                                    <td>peter.smith@mail.com</td>
-                                    <td>(+33)-655-5187-93</td>
-                                    <td>Yreka/California</td>
-                                    <td>Pay Pal</td>
-                                    <td>
-                                        <i class="bx bxs-circle text-success me-1"></i>Completed
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="ps-3">
-                                        <a href="order-detail.html">#RB3625</a>
-                                    </td>
-                                    <td>21 April 2024</td>
-                                    <td>
-                                        <img src="/v1/dash/assets/images/products/product-6.png" alt="product-6"
-                                            class="img-fluid avatar-sm">
-                                    </td>
-                                    <td>
-                                        <a href="#!">Emmanuel J. Delcid</a>
-                                    </td>
-                                    <td>
-                                        emmanuel.delicid@mail.com
-                                    </td>
-                                    <td>(+30)-693-5553-637</td>
-                                    <td>Atlanta/Georgia</td>
-                                    <td>Pay Pal</td>
-                                    <td>
-                                        <i class="bx bxs-circle text-primary me-1"></i>Processing
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="ps-3">
-                                        <a href="order-detail.html">#RB8652</a>
-                                    </td>
-                                    <td>18 April 2024</td>
-                                    <td>
-                                        <img src="/v1/dash/assets/images/products/product-1(2).png" alt="product-1(2)"
-                                            class="img-fluid avatar-sm">
-                                    </td>
-                                    <td>
-                                        <a href="#!">William J. Cook</a>
-                                    </td>
-                                    <td>william.cook@mail.com</td>
-                                    <td>(+91)-855-5446-150</td>
-                                    <td>Rosenberg/Texas</td>
-                                    <td>Credit Card</td>
-                                    <td>
-                                        <i class="bx bxs-circle text-primary me-1"></i>Processing
-                                    </td>
-                                </tr>
+                                @foreach (\App\Models\CommandProduct::with(['produit', 'commande.client'])->latest()->limit(5)->get() as $product)
+                                    <tr>
+                                        <td>
+                                            {{ Carbon\Carbon::parse($product->created_at)->format('M d, Y') }} -
+                                            {{ Carbon\Carbon::parse($product->created_at)->diffForHumans() }}
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <div
+                                                    class="rounded bg-light avatar-md d-flex align-items-center justify-content-center">
+                                                    <img src="{{ $product->produit?->getLastAttachment()?->stream() }}"
+                                                        alt="{{ $product->produit->nom ?? 'Produit' }}" class="avatar-md rounded rounded-3">
+                                                </div>
+                                                <div>
+                                                    <a href="#!"
+                                                        class="text-dark fw-medium fs-15">{{ $product->produit->name ?? 'Produit' }}</a>
+                                                    <p class="text-muted mb-0 mt-1 fs-13"><b>magasin:</b>
+                                                        {{ $product->produit->magasin->name }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="#!">{{ $product->commande->full_name ?? 'Client inconnu' }}</a>
+                                        </td>
+                                        <td>{{ $product->commande->client->email ?? '—' }}</td>
+                                        <td>{{ $product->commande->phone_number ?? '—' }}</td>
+                                        <td>{{ $product->commande->address ?? '—' }}</td>
+                                        <td>COD</td>
+                                        <td>
+                                            {!! $product->commande->status() !!}
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
-                            <!-- end tbody -->
                         </table>
                         <!-- end table -->
                     </div>
                     <!-- table responsive -->
 
-                    <div class="card-footer border-top">
+                    {{-- <div class="card-footer border-top">
                         <div class="row g-3">
                             <div class="col-sm">
                                 <div class="text-muted">
@@ -523,7 +434,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- end card -->
             </div>

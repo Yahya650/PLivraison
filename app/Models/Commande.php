@@ -25,14 +25,16 @@ class Commande extends Model
     }
     public function subTotal()
     {
-        return $this->products()->sum('total');
+        // dd($this->products()->sum('total'));
+        return $this->products()->sum('unit_price');
     }
     public function discount()
     {
+        // dd($this->products()->sum('remise'));
         return $this->products()->sum('remise');
     }
     public function total()
     {
-        return $this->products()->sum('total') - $this->discount() + $this->delivery_price;
+        return $this->products()->sum('total') + $this->delivery_price;
     }
 }
