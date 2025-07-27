@@ -78,7 +78,7 @@
                                 <div class="inner">
                                     <input type="text" class="input" name="q"
                                         value="{{ request()->get('q') }}"
-                                        placeholder="Rechercher un @if (Request::route()->getName() == 'web.products')produit
+                                        placeholder="Rechercher un @if (Request::route()->getName() == 'web.products') produit
                                         @elseif(Request::route()->getName() == 'web.magasins')magasine @endif">
                                 </div>
                                 <button class="btn-search" type="submit">
@@ -324,8 +324,10 @@
         <div class="item mobile-logo">
             <div class="logo">
                 <a href="#">
-                    <img src="/v1/web/assets/images/logo.png" alt="img">
-                </a>
+                    <img src="/v1/web/assets/images/plivraison.png" alt="img"
+                        style="
+                                width: 140px;
+                            "> </a>
             </div>
         </div>
         <div class="item item mobile-search-box has-sub">
@@ -339,16 +341,38 @@
                     <i class="fa fa-times" aria-hidden="true"></i>
                 </a>
                 <div class="header-searchform-box">
-                    <form class="header-searchform">
+                    <form class="header-searchform" action="{{ route('web.products') }}" data-no-controller=true
+                        method="get">
                         <div class="searchform-wrap">
-                            <input type="text" class="search-input" placeholder="Enter keywords to search...">
+                            {{-- <div class="category">
+                                    <select title="cate" data-placeholder="All Categories" class="chosen-select" name="cate"
+                                        tabindex="1">
+                                        <option value="United States">Healthy</option>
+                                        <option value="United Kingdom">Pumpkin</option>
+                                        <option value="Afghanistan">Vitamins</option>
+                                        <option value="Aland Islands">Vegetables</option>
+                                        <option value="Albania">New Arrivals</option>
+                                        <option value="Algeria">Lentils</option>
+                                    </select>
+                                </div> --}}
+                            <input type="text" class="search-input" name="q"
+                                value="{{ request()->get('q') }}"
+                                placeholder="Rechercher un @if (Request::route()->getName() == 'web.products') produit
+                                        @elseif(Request::route()->getName() == 'web.magasins')magasine @endif">
                             <input type="submit" class="submit button" value="Search">
+
                         </div>
                     </form>
+
+                    {{-- <form class="header-searchform">
+                        <div class="searchform-wrap">
+                            <input type="text" class="search-input" placeholder="Enter keywords to search...">
+                        </div>
+                    </form> --}}
                 </div>
             </div>
         </div>
-        <div class="item mobile-settings-box has-sub">
+        {{-- <div class="item mobile-settings-box has-sub">
             <a href="#">
                 <span class="icon">
                     <i class="fa fa-cog" aria-hidden="true"></i>
@@ -387,7 +411,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="item menu-bar">
             <a class=" mobile-navigation  menu-toggle" href="#">
                 <span></span>

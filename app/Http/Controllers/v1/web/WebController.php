@@ -18,7 +18,7 @@ class WebController extends Controller
     public function home()
     {
         $categories = Category::inRandomOrder()->limit(4)->get();
-        $products = Produit::inRandomOrder()->limit(12)->get();
+        $products = Produit::inRandomOrder()->limit(6)->get();
         $magasins = Magasin::inRandomOrder()->limit(12)->get();
 
         return view('v1.web.pages.home.index', compact('products', 'categories', 'magasins'));

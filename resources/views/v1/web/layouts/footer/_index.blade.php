@@ -100,7 +100,7 @@
                             </ul>
                         </div>
                         <div class="coppyright">
-                            Copyright © {{date('Y')}}
+                            Copyright © {{ date('Y') }}
                             <a href="#">WeCodeIt</a>
                             . All rights reserved
                         </div>

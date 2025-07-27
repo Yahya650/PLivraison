@@ -123,37 +123,40 @@
                                         <div class="flash">
                                             <span class="onnew">
                                                 <span class="text">
-                                                    {{ $product->magasin?->name }}
+                                                    {{ $product->magasin->name }}
+                                                    @if ($product->compare_price)
+                                                        ({{ '-' . calculateDiscountPercentage($product->price, $product->compare_price) . ' %' }})
+                                                    @endif
                                                 </span>
                                             </span>
                                         </div>
                                     </div>
                                     <div class="product-thumb">
                                         <div class="thumb-inner">
-                                            <a href="#">
+                                            <a href="{{ route('web.product', $product->slug) }}">
                                                 <img src="{{ $product?->getLastAttachment()?->stream() }}"
                                                     alt="{{ $product->slug }}">
                                             </a>
-                                            <div class="thumb-group">
+                                            {{-- <div class="thumb-group">
                                                 <div class="yith-wcwl-add-to-wishlist">
                                                     <div class="yith-wcwl-add-button">
                                                         <a href="#">Add to Wishlist</a>
                                                     </div>
                                                 </div>
-                                                {{-- <a href="#" class="button quick-wiew-button">Quick View</a> --}}
+                                                <a href="#" class="button quick-wiew-button">Quick View</a>
                                                 <div class="loop-form-add-to-cart">
                                                     <button class="single_add_to_cart_button button">Add to cart</button>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
-                                        <div class="product-count-down">
+                                        {{-- <div class="product-count-down">
                                             <div class="gnash-countdown" data-y="2021" data-m="10" data-w="4"
                                                 data-d="10" data-h="20" data-i="20" data-s="60"></div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <div class="product-info">
                                         <h5 class="product-name product_title">
-                                            <a href="#">{{ $product->name }}</a>
+                                            <a href="{{ route('web.product', $product->slug) }}">{{ $product->name }}</a>
                                         </h5>
                                         <div class="group-info">
                                             <div class="stars-rating">
@@ -174,6 +177,38 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <form class="quantity-add-to-cart form-store" action="{{ route('web.panier.add') }}"
+                                        method="POST" data-container="#panier-items" data-no-controller="true"
+                                        data-names-list='[
+                        "product_id", "quantity" ]'
+                                        style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100px;
+                    ">
+                                        <div class="quantity"
+                                            style="
+                        display: block;
+                        /* margin: 8px 90px; */
+                    ">
+                                            <input type="hidden" name="product_id" value="{{ cryptID($product->id) }}">
+
+                                            <div class="control">
+                                                <a class="btn-number qtyminus quantity-minus" href="#">-</a>
+                                                <input type="text" name="quantity" data-step="1" data-min="0"
+                                                    value="1" title="Qty" min="1" class="input-qty qty"
+                                                    size="4">
+                                                <a href="#" class="btn-number qtyplus quantity-plus">+</a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <button class="single_add_to_cart_button button" type="submit"
+                                                id="wait-button-add">Add to
+                                                cart</button>
+                                        </div>
+                                    </form>
+
                                 </div>
                             </div>
                         @endforeach
@@ -282,22 +317,25 @@
                                                                 <img src="{{ $magasin?->getLastAttachment()?->stream() }}"
                                                                     alt="{{ $magasin->slug }}">
                                                             </a>
-                                                            <div class="thumb-group">
+                                                            {{-- <div class="thumb-group">
                                                                 <div class="yith-wcwl-add-to-wishlist">
                                                                     <div class="yith-wcwl-add-button">
                                                                         <a href="#">Add to Wishlist</a>
                                                                     </div>
                                                                 </div>
-                                                                {{-- <a href="#" class="button quick-wiew-button">Quick --}}
-                                                                    View</a>
+                                                                <a href="#" class="button quick-wiew-button">Quick
+                                                                View</a>
                                                                 <div class="loop-form-add-to-cart">
                                                                     <button class="single_add_to_cart_button button">Add to
                                                                         cart
                                                                     </button>
                                                                 </div>
-                                                            </div>
+                                                            </div> --}}
                                                         </div>
                                                     </div>
+                                                    @php
+                                                        $rating = rand(4.5, 5);
+                                                    @endphp
                                                     <div class="product-info">
                                                         <h5 class="product-name product_title">
                                                             <a href="#">{{ $magasin->name }}</a>
@@ -305,10 +343,11 @@
                                                         <div class="group-info">
                                                             <div class="stars-rating">
                                                                 <div class="star-rating">
-                                                                    <span class="star-3"></span>
+                                                                    <span class="star-{{ $rating }}"></span>
                                                                 </div>
                                                                 <div class="count-star">
-                                                                    (3)
+                                                                    ({{ $rating }})
+                                                                    - {{ rand(10, 100) . ' Avis' }}
                                                                 </div>
                                                             </div>
                                                             {{-- <div class="price">
@@ -388,7 +427,7 @@
                     </div>
                 </div>
             </div>
-            <div class="gnash-blog-wraap default">
+            {{-- <div class="gnash-blog-wraap default">
                 <div class="container">
                     <h3 class="custommenu-title-blog">
                         From Our Blog
@@ -649,7 +688,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     {{-- <div class="instagram-wrapp">
