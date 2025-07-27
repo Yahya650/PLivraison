@@ -24,6 +24,20 @@ class AuthController extends Controller
         // }
         // abort(404);
     }
+    public function register()
+    {
+        return response()->json(['message' => "maintenence"], 401);
+    }
+    public function getWebLogin()
+    {
+        return view('v1.web.pages.auth.index');
+        // if ($guard == "Administrateur") {
+        // }
+        // if ($guard == "Assistant Administratif") {
+        //     return view('v1.dashboard.auth.administrative_assistant.login.index');
+        // }
+        // abort(404);
+    }
 
 
     // public function sanctum_login(Request $req, $guard)

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\v1\web\WebController;
+use App\Http\Controllers\v1\dashboard\PanierController;
 use App\Http\Controllers\v1\dashboard\MagasinController;
 use App\Http\Controllers\v1\dashboard\ProductController;
 use App\Http\Controllers\v1\dashboard\CategoryController;
@@ -26,6 +27,13 @@ use App\Http\Controllers\v1\dashboard\ProductCategoryController;
 Route::group(['as' => 'web.'], function () {
     Route::get('/', [WebController::class, 'home'])->name('home');
     Route::get('/products', [WebController::class, 'products'])->name('products');
+    Route::post('/panier/ajouter', [PanierController::class, 'add'])->name('panier.add');
+    // Route::get('/products/add-to-cart', [WebController::class, 'AddToCart'])->name('add.to.cart');
+    Route::get('/products/{slug}', [WebController::class, 'product'])->name('product');
+    Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
+        Route::get('/client-login', [AuthController::class, 'getWebLogin'])->name('login.get');
+        Route::post('/client-register', [AuthController::class, 'register'])->name('register.post');
+    });
 });
 
 // Auth Systeme

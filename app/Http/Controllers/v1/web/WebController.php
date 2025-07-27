@@ -18,6 +18,14 @@ class WebController extends Controller
 
         return view('v1.web.pages.home.index', compact('products', 'categories', 'magasins'));
     }
+    public function AddToCart()
+    {
+        $categories = Category::inRandomOrder()->limit(4)->get();
+        $products = Produit::inRandomOrder()->limit(12)->get();
+        $magasins = Magasin::inRandomOrder()->limit(12)->get();
+
+        return view('v1.web.pages.home.index', compact('products', 'categories', 'magasins'));
+    }
 
     public function products()
     {
@@ -97,5 +105,16 @@ class WebController extends Controller
         $magasins = Magasin::all();
         $productCategories = ProductCategory::all();
         return view('v1.web.pages.products.index', compact('products', 'categories', "magasins", "productCategories"));
+    }
+    public function product($slug)
+    {
+        $req = request();
+
+
+        $product = Produit::where('slug', $slug)->first();
+        if (!$product) return response()->json(['message' => "La Produit est incorrect"], 422);
+
+
+        return view('v1.web.pages.products.show.index', compact('product'));
     }
 }

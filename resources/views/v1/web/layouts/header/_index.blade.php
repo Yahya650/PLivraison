@@ -36,8 +36,10 @@
                     <li>
                         @if (Auth::check())
                             <a href="#">{{ Auth::user()->fullName() }}</a>
+                            /
+                            <a href="{{ route('auth.logout') }}">se d&eacute;connecter</a>
                         @else
-                            <a href="{{ route('auth.login.get') }}">vous connecter ou vous inscrire</a>
+                            <a href="{{ route('web.auth.login.get') }}">vous connecter ou vous inscrire</a>
                         @endif
                     </li>
                 </ul>
@@ -84,194 +86,8 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-2 col-sm-12 col-md-3 col-xs-12 col-ts-12">
-                    <div class="header-control">
-                        <div class="block-minicart gnash-mini-cart block-header gnash-dropdown">
-                            <a href="javascript:void(0);" class="shopcart-icon" data-gnash="gnash-dropdown">
-                                Cart
-                                <span class="count">
-                                    0
-                                </span>
-                            </a>
-                            <div class="shopcart-description gnash-submenu">
-                                <div class="content-wrap">
-                                    <h3 class="title">Shopping Cart</h3>
-                                    <ul class="minicart-items">
-                                        <li class="product-cart mini_cart_item">
-                                            <a href="#" class="product-media">
-                                                <img src="/v1/web/assets/images/item-minicart-1.jpg" alt="img">
-                                            </a>
-                                            <div class="product-details">
-                                                <h5 class="product-name">
-                                                    <a href="#">Sweet Orange</a>
-                                                </h5>
-                                                <div class="variations">
-                                                    <span class="attribute_color">
-                                                        <a href="#">Black</a>
-                                                    </span>
-                                                    ,
-                                                    <span class="attribute_size">
-                                                        <a href="#">300ml</a>
-                                                    </span>
-                                                </div>
-                                                <span class="product-price">
-                                                    <span class="price">
-                                                        <span>$45</span>
-                                                    </span>
-                                                </span>
-                                                <span class="product-quantity">
-                                                    (x1)
-                                                </span>
-                                                <div class="product-remove">
-                                                    <a href="#"><i class="fa fa-trash-o"
-                                                            aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="product-cart mini_cart_item">
-                                            <a href="#" class="product-media">
-                                                <img src="/v1/web/assets/images/item-minicart-2.jpg" alt="img">
-                                            </a>
-                                            <div class="product-details">
-                                                <h5 class="product-name">
-                                                    <a href="#">Soap Soybeans Solutions</a>
-                                                </h5>
-                                                <div class="variations">
-                                                    <span class="attribute_color">
-                                                        <a href="#">Black</a>
-                                                    </span>
-                                                    ,
-                                                    <span class="attribute_size">
-                                                        <a href="#">300ml</a>
-                                                    </span>
-                                                </div>
-                                                <span class="product-price">
-                                                    <span class="price">
-                                                        <span>$45</span>
-                                                    </span>
-                                                </span>
-                                                <span class="product-quantity">
-                                                    (x1)
-                                                </span>
-                                                <div class="product-remove">
-                                                    <a href="#"><i class="fa fa-trash-o"
-                                                            aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="product-cart mini_cart_item">
-                                            <a href="#" class="product-media">
-                                                <img src="/v1/web/assets/images/item-minicart-3.jpg" alt="img">
-                                            </a>
-                                            <div class="product-details">
-                                                <h5 class="product-name">
-                                                    <a href="#">Soybeans Solutions Soap</a>
-                                                </h5>
-                                                <div class="variations">
-                                                    <span class="attribute_color">
-                                                        <a href="#">Black</a>
-                                                    </span>
-                                                    ,
-                                                    <span class="attribute_size">
-                                                        <a href="#">300ml</a>
-                                                    </span>
-                                                </div>
-                                                <span class="product-price">
-                                                    <span class="price">
-                                                        <span>$45</span>
-                                                    </span>
-                                                </span>
-                                                <span class="product-quantity">
-                                                    (x1)
-                                                </span>
-                                                <div class="product-remove">
-                                                    <a href="#"><i class="fa fa-trash-o"
-                                                            aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="subtotal">
-                                        <span class="total-title">Subtotal: </span>
-                                        <span class="total-price">
-                                            <span class="Price-amount">
-                                                $135
-                                            </span>
-                                        </span>
-                                    </div>
-                                    <div class="actions">
-                                        <a class="button button-viewcart" href="shoppingcart.html">
-                                            <span>View Bag</span>
-                                        </a>
-                                        <a href="checkout.html" class="button button-checkout">
-                                            <span>Checkout</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="block-account block-header gnash-dropdown">
-                            <a href="javascript:void(0);" data-gnash="gnash-dropdown">
-                                <span class="flaticon-user"></span>
-                            </a>
-                            <div class="header-account gnash-submenu">
-                                <div class="header-user-form-tabs">
-                                    <ul class="tab-link">
-                                        <li class="active">
-                                            <a data-toggle="tab" aria-expanded="true"
-                                                href="#header-tab-login">Login</a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tab" aria-expanded="true"
-                                                href="#header-tab-rigister">Register</a>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-container">
-                                        <div id="header-tab-login" class="tab-panel active">
-                                            <form method="post" class="login form-login">
-                                                <p class="form-row form-row-wide">
-                                                    <input type="email" placeholder="Email" class="input-text">
-                                                </p>
-                                                <p class="form-row form-row-wide">
-                                                    <input type="password" class="input-text" placeholder="Password">
-                                                </p>
-                                                <p class="form-row">
-                                                    <label class="form-checkbox">
-                                                        <input type="checkbox" class="input-checkbox">
-                                                        <span>
-                                                            Remember me
-                                                        </span>
-                                                    </label>
-                                                    <input type="submit" class="button" value="Login">
-                                                </p>
-                                                <p class="lost_password">
-                                                    <a href="#">Lost your password?</a>
-                                                </p>
-                                            </form>
-                                        </div>
-                                        <div id="header-tab-rigister" class="tab-panel">
-                                            <form method="post" class="register form-register">
-                                                <p class="form-row form-row-wide">
-                                                    <input type="email" placeholder="Email" class="input-text">
-                                                </p>
-                                                <p class="form-row form-row-wide">
-                                                    <input type="password" class="input-text" placeholder="Password">
-                                                </p>
-                                                <p class="form-row">
-                                                    <input type="submit" class="button" value="Register">
-                                                </p>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="menu-bar mobile-navigation menu-toggle" href="#">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </a>
-                    </div>
+                <div id="panier-items">
+                    @include('v1.web.layouts.header.components.panier')
                 </div>
             </div>
         </div>
@@ -365,8 +181,7 @@
                                 </ul> --}}
                             </li>
                             <li class="menu-item">
-                                <a href="gridproducts.html" class="gnash-menu-item-title"
-                                    title="Services">Services</a>
+                                <a href="gridproducts.html" class="gnash-menu-item-title" title="Services">Services</a>
                                 <span class="toggle-submenu"></span>
                                 {{-- <ul class="submenu">
                                     <li class="menu-item">

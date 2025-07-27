@@ -46,9 +46,6 @@
                         - <span
                             class="fs-10">{{ calculateDiscountPercentage($product->price, $product->compare_price) . ' %' }}</span>
                     @endif
-
-
-
                 </td>
                 <td>
                     {{ $product->category?->name }}
