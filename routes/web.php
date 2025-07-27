@@ -36,6 +36,11 @@ Route::group(['as' => 'web.'], function () {
     Route::post('/checkout', [WebController::class, 'checkoutPost'])->name('checkout.post');
     Route::get('/thankyou', [WebController::class, 'thankyou'])->name('thankyou');
 
+    // Magasins (Cart)
+    Route::prefix('magasins')->group(function () {
+        Route::get('/', [WebController::class, 'magasins'])->name('magasins');
+    });
+
     // Panier (Cart)
     Route::prefix('panier')->group(function () {
         Route::get('/', [WebController::class, 'panier'])->name('panier');

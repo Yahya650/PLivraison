@@ -77,7 +77,9 @@
                                 </div> --}}
                                 <div class="inner">
                                     <input type="text" class="input" name="q"
-                                        value="{{ request()->get('q') }}" placeholder="Rechercher un produit">
+                                        value="{{ request()->get('q') }}"
+                                        placeholder="Rechercher un @if (Request::route()->getName() == 'web.products')produit
+                                        @elseif(Request::route()->getName() == 'web.magasins')magasine @endif">
                                 </div>
                                 <button class="btn-search" type="submit">
                                     <span class="icon-search"></span>
@@ -177,6 +179,26 @@
                                                 <a href="inblog_right-siderbar.html">Right Sidebar</a>
                                             </li>
                                         </ul>
+                                    </li>
+                                </ul> --}}
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('web.magasins') }}" class="gnash-menu-item-title"
+                                    title="Magazines">Les
+                                    Magasines</a>
+                                <span class="toggle-submenu"></span>
+                                {{-- <ul class="submenu">
+                                    <li class="menu-item">
+                                        <a href="gridproducts.html">Grid Fullwidth</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="gridproducts_leftsidebar.html">Grid Left sidebar</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="gridproducts_bannerslider.html">Grid Bannerslider</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="listproducts.html">List</a>
                                     </li>
                                 </ul> --}}
                             </li>

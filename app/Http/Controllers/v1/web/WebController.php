@@ -83,6 +83,85 @@ class WebController extends Controller
     }
 
 
+    public function magasins()
+    {
+
+
+        $req = request();
+
+        // this condition for filter data
+        $magasins = Magasin::latest();
+
+        // if ($req->filled('order_by')) {
+        //     switch ($req->input('order_by')) {
+        //         case 'PRICE_ASC':
+        //             $magasins->orderBy('price', 'asc');
+        //         case 'PRICE_DESC':
+        //             $magasins->orderBy('price', 'desc');
+        //         case 'NAME_ASC':
+        //             $magasins->orderBy('name', 'asc');
+        //         case 'NAME_DESC':
+        //             $magasins->orderBy('name', 'desc');
+        //     }
+        // }
+
+        // if ($req->input('product_categories_ids')) {
+
+        //     $category_ids = explode(',', $req->input('product_categories_ids'));
+
+        //     $magasins->whereIn('category_id', explode(',', $category_ids));
+        // };
+
+        if ($req->filled('category_ids')) {
+            $encryptedIds = explode(',', $req->input('category_ids'));
+
+            $productCategoryIds = collect($encryptedIds)
+                ->filter() // remove null/empty
+                ->map(fn($id) => dcryptID($id))
+                ->toArray();
+
+            $magasins->whereIn('category_id', $productCategoryIds);
+        }
+
+        // if ($req->filled('magasin_ids')) {
+        //     $encryptedMagasinIds = explode(',', $req->input('magasin_ids'));
+
+        //     $magasinIds = collect($encryptedMagasinIds)
+        //         ->filter()
+        //         ->map(function ($id) {
+        //             try {
+        //                 return dcryptID($id);
+        //             } catch (\Exception $e) {
+        //                 return null; // or log error
+        //             }
+        //         })
+        //         ->filter() // Remove nulls
+        //         ->toArray();
+
+        //     // Optional: Debug
+        //     // dd($req->input('magasin_ids'), $magasinIds, $magasins->whereIn('magasin_id', $magasinIds)->get());
+
+        //     $magasins->whereIn('magasin_id', $magasinIds);
+        // }
+        // if ($magasin_ids = $req->input('magasins')) {
+        //     $magasins->whereIn('magasin_id', explode(',', $magasin_ids));
+        // };
+
+        if ($req->input('q') != null) $magasins->where('name', "LIKE", "%" . $req->input('q') . "%");
+
+        // if ($req->input('min-duration') != null || $req->input('max-duration') != null) {
+        //     $magasins->where('duration', ">=", (int) $req->input('min-duration'))->where('duration', "<=", (int) $req->input('max-duration'));
+        // };
+
+        $magasins = $magasins->paginate(12)->appends($req->except('page'));
+
+        if ($req->ajax()) {
+            return response()->json(['html' => view('v1.web.pages.magasins.html.items', compact('magasins'))->render()]);
+        }
+
+        $categories = Category::all();
+        return view('v1.web.pages.magasins.index', compact('categories', "magasins"));
+    }
     public function panier()
     {
         $categories = Category::inRandomOrder()->limit(4)->get();
@@ -217,7 +296,7 @@ class WebController extends Controller
         $req = request();
 
         // this condition for filter data
-        $products = Produit::query();
+        $products = Produit::latest();
 
         if ($req->filled('order_by')) {
             switch ($req->input('order_by')) {

@@ -1,22 +1,22 @@
-@foreach ($products as $product)
+@foreach ($magasins as $magasin)
     <li class="product-item  col-lg-4 col-md-6 col-sm-6 col-xs-6 col-ts-12 style-1">
         <div class="product-inner equal-element" style="height: 441px !important;">
             <div class="product-top">
                 <div class="flash">
                     <span class="onnew">
                         <span class="text">
-                            {{ $product->magasin->name }}
-                            @if ($product->compare_price)
-                                ({{ '-' . calculateDiscountPercentage($product->price, $product->compare_price) . ' %' }})
-                            @endif
+                            {{ $magasin->category->name }}
+                        </span>,
+                        <span class="text">
+                            {{ $magasin->products()->count() . ' Produits' }}
                         </span>
                     </span>
                 </div>
             </div>
             <div class="product-thumb">
                 <div class="thumb-inner">
-                    <a href="{{ route('web.product', $product->slug) }}">
-                        <img src="{{ $product?->getLastAttachment()?->stream() }}" alt="{{ $product->slug }}">
+                    <a href="{{ route('web.products', ['magasin_ids' => cryptID($magasin->id)]) }}">
+                        <img src="{{ $magasin?->getLastAttachment()?->stream() }}" alt="{{ $magasin->slug }}">
                     </a>
                     {{-- <div class="thumb-group">
                         <div class="yith-wcwl-add-to-wishlist">
@@ -34,7 +34,8 @@
             </div>
             <div class="product-info">
                 <h5 class="product-name product_title">
-                    <a href="{{ route('web.product', $product->slug) }}">{{ $product->name }}</a>
+                    <a
+                        href="{{ route('web.products', ['magasin_ids' => cryptID($magasin->id)]) }}">{{ $magasin->name }}</a>
                 </h5>
 
                 @php
@@ -50,18 +51,18 @@
                             - {{ rand(10, 100) . ' Avis' }}
                         </div>
                     </div>
-                    <div class="price">
+                    {{-- <div class="price">
                         <del>
-                            {{ $product->compare_price . ' MAD' ?? '' }}
+                            {{ $magasin->compare_price . ' MAD' ?? '' }}
                         </del>
                         <ins>
-                            {{ $product->price . ' MAD' ?? 'N/A' }}
+                            {{ $magasin->price . ' MAD' ?? 'N/A' }}
                         </ins>
-                    </div>
+                    </div> --}}
                 </div>
 
 
-                <form class="quantity-add-to-cart form-store" action="{{ route('web.panier.add') }}" method="POST"
+                {{-- <form class="quantity-add-to-cart form-store" action="{{ route('web.panier.add') }}" method="POST"
                     data-container="#panier-items" data-no-controller="true"
                     data-names-list='[
                         "product_id", "quantity" ]'
@@ -76,7 +77,7 @@
                         display: block;
                         /* margin: 8px 90px; */
                     ">
-                        <input type="hidden" name="product_id" value="{{ cryptID($product->id) }}">
+                        <input type="hidden" name="product_id" value="{{ cryptID($magasin->id) }}">
 
                         <div class="control">
                             <a class="btn-number qtyminus quantity-minus" href="#">-</a>
@@ -89,7 +90,7 @@
                         <button class="single_add_to_cart_button button" type="submit" id="wait-button-add">Add to
                             cart</button>
                     </div>
-                </form>
+                </form> --}}
             </div>
         </div>
     </li>
