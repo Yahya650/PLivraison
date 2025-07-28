@@ -37,14 +37,15 @@
                                                             {{ $product->name }}
                                                         </a>
                                                         <p class="text-muted mb-0 mt-1 fs-13">
-                                                            <span>Magazine : </span> {{ $product->magasin?->name }}
-                                                            <span>Category : </span>
+                                                            <b>Magazine : </b> {{ $product->magasin?->name }}
+                                                            <br>
+                                                            <b>Category : </b>
                                                             {{ $product->magasin->category?->name }}
-                                                            <span>Type : </span> {{ $product->category?->name }}
+                                                            <br>
+                                                            <b>Type : </b> {{ $product->category?->name }}
                                                         </p>
                                                     </div>
                                                 </div>
-
                                             </td>
                                             <td>{{ $product->pivot->unit_price . ' MAD' }}</td>
                                             <td>{{ $product->pivot->quantity }}</td>

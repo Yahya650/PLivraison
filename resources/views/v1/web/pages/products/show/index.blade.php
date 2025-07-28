@@ -127,15 +127,9 @@
                                     </div> --}}
                                 <form class="quantity-add-to-cart form-store " style="display: flex"
                                     action="{{ route('web.panier.add') }}" method="POST" data-container="#panier-items"
-                                    data-no-controller="true"
-                                    data-names-list='[
-                        "product_id", "quantity" ]'
-                                    style="
-                    ">
-                                    <div class="quantity" style="
-                    ">
+                                    data-no-controller="true" data-names-list='["product_id", "quantity"]' style="">
+                                    <div class="quantity" style="">
                                         <input type="hidden" name="product_id" value="{{ cryptID($product->id) }}">
-
                                         <div class="control">
                                             <a class="btn-number qtyminus quantity-minus" href="#">-</a>
                                             <input type="text" name="quantity" data-step="1" data-min="0"
@@ -146,8 +140,7 @@
                                     </div>
                                     <div>
                                         <button class="single_add_to_cart_button button" type="submit"
-                                            id="wait-button-add">Add to
-                                            cart</button>
+                                            id="wait-button-add">Add to cart</button>
                                     </div>
                                 </form>
                             </div>
