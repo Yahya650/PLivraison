@@ -112,7 +112,7 @@
                             @endphp
                             @foreach ($categories as $category)
                                 <li class="menu-item">
-                                    <a href="{{ route('web.products', ['product_category_ids' => cryptID($category->id)]) }}"
+                                    <a href="{{ route('web.magasins', ['category_ids' => cryptID($category->id)]) }}"
                                         class="gnash-menu-item-title"
                                         title="{{ $category->name }}">{{ $category->name }}</a>
                                 </li>
@@ -176,12 +176,12 @@
                                     </li>
                                 </ul> --}}
                             </li>
-                            <li class="menu-item">
+                            {{-- <li class="menu-item">
                                 <a href="{{ route('web.magasins') }}" class="gnash-menu-item-title"
                                     title="Magazines">Les
                                     Magasines</a>
                                 <span class="toggle-submenu"></span>
-                                {{-- <ul class="submenu">
+                                <ul class="submenu">
                                     <li class="menu-item">
                                         <a href="gridproducts.html">Grid Fullwidth</a>
                                     </li>
@@ -194,12 +194,12 @@
                                     <li class="menu-item">
                                         <a href="listproducts.html">List</a>
                                     </li>
-                                </ul> --}}
-                            </li>
-                            <li class="menu-item">
+                                </ul>
+                            </li> --}}
+                            {{-- <li class="menu-item">
                                 <a href="gridproducts.html" class="gnash-menu-item-title" title="Services">Services</a>
                                 <span class="toggle-submenu"></span>
-                                {{-- <ul class="submenu">
+                                <ul class="submenu">
                                     <li class="menu-item">
                                         <a href="gridproducts.html">Grid Fullwidth</a>
                                     </li>
@@ -212,8 +212,8 @@
                                     <li class="menu-item">
                                         <a href="listproducts.html">List</a>
                                     </li>
-                                </ul> --}}
-                            </li>
+                                </ul>
+                            </li> --}}
                             {{-- <li class="menu-item  menu-item-has-children item-megamenu">
                                 <a href="#" class="gnash-menu-item-title" title="Pages">Pages</a>
                                 <span class="toggle-submenu"></span>
@@ -267,11 +267,11 @@
                                     </div>
                                 </div>
                             </li> --}}
-                            <li class="menu-item">
+                            {{-- <li class="menu-item">
                                 <a href="inblog_right-siderbar.html" class="gnash-menu-item-title"
                                     title="Categories">Categories</a>
                                 <span class="toggle-submenu"></span>
-                                {{-- <ul class="submenu">
+                                <ul class="submenu">
                                     <li class="menu-item menu-item-has-children">
                                         <a href="#" class="gnash-menu-item-title" title="Blog Style">Blog
                                             Style</a>
@@ -301,8 +301,8 @@
                                             </li>
                                         </ul>
                                     </li>
-                                </ul> --}}
-                            </li>
+                                </ul>
+                            </li> --}}
                             <li class="menu-item">
                                 <a href="about.html" class="gnash-menu-item-title" title="About">About</a>
                             </li>
@@ -349,8 +349,7 @@
                                         <option value="Algeria">Lentils</option>
                                     </select>
                                 </div> --}}
-                            <input type="text" class="search-input" name="q"
-                                value="{{ request()->get('q') }}"
+                            <input type="text" class="search-input" name="q" value="{{ request()->get('q') }}"
                                 placeholder="Rechercher un @if (Request::route()->getName() == 'web.products') produit
                                         @elseif(Request::route()->getName() == 'web.magasins')magasine @endif">
                             <input type="submit" class="submit button" value="Search">

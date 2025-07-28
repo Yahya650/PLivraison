@@ -332,7 +332,7 @@ $("body").on("click", ".anchor-modal", function (e) {
     // Get the base URL
     let url = new URL(current.data("href"));
 
-    // Loop through localStorage and add each item as a query parameter
+    // // Loop through localStorage and add each item as a query parameter
     // for (let i = 0; i < localStorage.length; i++) {
     //     const key = localStorage.key(i);
     //     const value = localStorage.getItem(key);
