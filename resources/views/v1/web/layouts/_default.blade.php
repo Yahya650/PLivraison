@@ -78,6 +78,27 @@
                 /* Shrink back to original size */
             }
         }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 125px;
+            /* was 20px, now moved up */
+            right: 25px;
+            z-index: 999;
+            width: 50px;
+            height: 50px;
+        }
+
+        .whatsapp-float img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .whatsapp-float:hover img {
+            opacity: 0.8;
+        }
     </style>
 
     @yield('style')
@@ -87,6 +108,9 @@
 
 <body class="home">
 
+    <a href="https://wa.me/212642613411" class="whatsapp-float" target="_blank" title="Contact us on WhatsApp">
+        <img src="/v1/web/assets/img/whatsapp_2111728.png" alt="WhatsApp" />
+    </a>
 
     @include('v1.web.layouts.header._index')
 

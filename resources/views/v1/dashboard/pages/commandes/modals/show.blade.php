@@ -37,7 +37,10 @@
                                                             {{ $product->name }}
                                                         </a>
                                                         <p class="text-muted mb-0 mt-1 fs-13">
-                                                            <span>Magazine : </span> {{ $product->magasin->name }}
+                                                            <span>Magazine : </span> {{ $product->magasin?->name }}
+                                                            <span>Category : </span>
+                                                            {{ $product->magasin->category?->name }}
+                                                            <span>Type : </span> {{ $product->category?->name }}
                                                         </p>
                                                     </div>
                                                 </div>

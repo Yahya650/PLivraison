@@ -11,7 +11,8 @@
 
                 <!-- Menu Toggle Button -->
                 <div class="topbar-item">
-                    <h4 class="fw-bold topbar-button pe-none text-uppercase mb-0">Bienvenus {{ Auth::user()->fullName()}} !</h4>
+                    <h4 class="fw-bold topbar-button pe-none text-uppercase mb-0">Bienvenus
+                        {{ Auth::user()->fullName() }} !</h4>
                 </div>
             </div>
 
@@ -269,9 +270,8 @@
                                 <div class="d-flex align-items-center gap-3 mt-1 bg-light bg-opacity-50 p-2 rounded-2">
                                     <a href="#!" class="fw-medium text-dark">UI/UX Figma Design</a>
                                     <div class="ms-auto">
-                                        <a href="#!" class="fw-medium text-primary fs-18"
-                                            data-bs-toggle="tooltip" data-bs-title="Download"
-                                            data-bs-placement="bottom"><iconify-icon
+                                        <a href="#!" class="fw-medium text-primary fs-18" data-bs-toggle="tooltip"
+                                            data-bs-title="Download" data-bs-placement="bottom"><iconify-icon
                                                 icon="iconamoon:cloud-download-duotone"></iconify-icon></a>
                                     </div>
                                 </div>

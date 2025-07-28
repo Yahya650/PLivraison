@@ -85,7 +85,8 @@
                         <div class="gnash-socials">
                             <ul class="socials">
                                 <li>
-                                    <a href="#" class="social-item" target="_blank">
+                                    <a href="https://www.facebook.com/share/1G3yR5Y2H7/" class="social-item"
+                                        target="_blank">
                                         <i class="fa-brands fa-facebook"></i>
                                     </a>
                                 </li>

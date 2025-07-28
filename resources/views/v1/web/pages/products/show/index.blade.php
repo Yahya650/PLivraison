@@ -303,7 +303,7 @@
                                         <div class="product-thumb">
                                             <div class="thumb-inner">
                                                 <a href="{{ route('web.product', $product->slug) }}">
-                                                    <img src="{{ $product->getLastAttachment()->stream() }}"
+                                                    <img src="{{ $product->getLastAttachment()?->stream() }}"
                                                         alt="img">
                                                 </a>
                                                 <div class="thumb-group">

@@ -171,18 +171,18 @@
                                     <form class="quantity-add-to-cart form-store" action="{{ route('web.panier.add') }}"
                                         method="POST" data-container="#panier-items" data-no-controller="true"
                                         data-names-list='[
-                        "product_id", "quantity" ]'
+                                              "product_id", "quantity" ]'
                                         style="
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        height: 100px;
-                    ">
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            height: 100px;
+                                        ">
                                         <div class="quantity"
                                             style="
-                        display: block;
-                        /* margin: 8px 90px; */
-                    ">
+                                                display: block;
+                                                /* margin: 8px 90px; */
+                                            ">
                                             <input type="hidden" name="product_id" value="{{ cryptID($product->id) }}">
 
                                             <div class="control">

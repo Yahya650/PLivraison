@@ -32,10 +32,15 @@
                         </ul>
                     </div>
                 </div> --}}
-                <ul class="header-user-links">
+                <ul class="header-user-links d-flex" style="display: flex; gap: 10px">
                     <li>
                         <a href="mailto:guercifdelivery@gmail.com" class="social-item" target="_blank">
                             <i class="fa-regular fa-envelope"></i> guercifdelivery@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:0642613411" class="social-item" target="_blank">
+                            <i class="fa-regular fa-envelope"></i> 0642613411
                         </a>
                     </li>
                 </ul>
@@ -176,7 +181,7 @@
                                     </li>
                                 </ul> --}}
                             </li>
-                            {{-- <li class="menu-item">
+                            <li class="menu-item">
                                 <a href="{{ route('web.magasins') }}" class="gnash-menu-item-title"
                                     title="Magazines">Les
                                     Magasines</a>
@@ -195,7 +200,7 @@
                                         <a href="listproducts.html">List</a>
                                     </li>
                                 </ul>
-                            </li> --}}
+                            </li>
                             {{-- <li class="menu-item">
                                 <a href="gridproducts.html" class="gnash-menu-item-title" title="Services">Services</a>
                                 <span class="toggle-submenu"></span>
@@ -349,7 +354,8 @@
                                         <option value="Algeria">Lentils</option>
                                     </select>
                                 </div> --}}
-                            <input type="text" class="search-input" name="q" value="{{ request()->get('q') }}"
+                            <input type="text" class="search-input" name="q"
+                                value="{{ request()->get('q') }}"
                                 placeholder="Rechercher un @if (Request::route()->getName() == 'web.products') produit
                                         @elseif(Request::route()->getName() == 'web.magasins')magasine @endif">
                             <input type="submit" class="submit button" value="Search">
