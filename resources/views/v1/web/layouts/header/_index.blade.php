@@ -34,13 +34,9 @@
                 </div> --}}
                 <ul class="header-user-links">
                     <li>
-                        @if (Auth::check())
-                            {{-- <a href="#">{{ Auth::user()->fullName() }}</a>
-                            /
-                            <a href="{{ route('auth.logout') }}">se d&eacute;connecter</a> --}}
-                            {{-- @else
-                            <a href="{{ route('auth.login.get') }}">vous connecter ou vous inscrire</a> --}}
-                        @endif
+                        <a href="mailto:guercifdelivery@gmail.com" class="social-item" target="_blank">
+                            <i class="fa-regular fa-envelope"></i> guercifdelivery@gmail.com
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -77,9 +73,7 @@
                                 </div> --}}
                                 <div class="inner">
                                     <input type="text" class="input" name="q"
-                                        value="{{ request()->get('q') }}"
-                                        placeholder="Rechercher un @if (Request::route()->getName() == 'web.products') produit
-                                        @elseif(Request::route()->getName() == 'web.magasins')magasine @endif">
+                                        value="{{ request()->get('q') }}" placeholder="Rechercher">
                                 </div>
                                 <button class="btn-search" type="submit">
                                     <span class="icon-search"></span>

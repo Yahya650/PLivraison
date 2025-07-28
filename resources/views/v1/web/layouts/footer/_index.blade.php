@@ -1,7 +1,9 @@
 <footer class="footer style7">
     <div class="container">
-        <div class="container-wapper">
-            <div class="row">
+        <div class="container-wapper" style="
+    padding-top: initial;
+">
+            {{-- <div class="row">
                 <div class="box-footer col-xs-12 col-sm-4 col-md-4 col-lg-4 hidden-sm hidden-md hidden-lg">
                     <div class="gnash-newsletter style1">
                         <div class="newsletter-head">
@@ -76,7 +78,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="footer-end">
                 <div class="row">
                     <div class="col-sm-12 col-xs-12">
@@ -84,25 +86,25 @@
                             <ul class="socials">
                                 <li>
                                     <a href="#" class="social-item" target="_blank">
-                                        <i class="icon fa fa-facebook"></i>
+                                        <i class="fa-brands fa-facebook"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="social-item" target="_blank">
-                                        <i class="icon fa fa-twitter"></i>
-                                    </a>
+                                    <a href="mailto:guercifdelivery@gmail.com" class="social-item" target="_blank">
+                                        <i class="fa-regular fa-envelope"></i> </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="social-item" target="_blank">
-                                        <i class="icon fa fa-instagram"></i>
+                                    <a href="https://www.instagram.com/delivery_guercif?igsh=MXhhc3Q5cm43b2Jn"
+                                        class="social-item" target="_blank">
+                                        <i class="fa-brands fa-instagram"></i>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         <div class="coppyright">
                             Copyright © {{ date('Y') }}
-                            <a href="#">WeCodeIt</a>
-                            . All rights reserved
+                            <a href="https://wecodeit.net/" target="_blank">WeCodeIt</a>
+                            . Tous droits réservés
                         </div>
                     </div>
                 </div>
@@ -113,38 +115,37 @@
 <div class="footer-device-mobile">
     <div class="wapper">
         <div class="footer-device-mobile-item device-home">
-            <a href="index.html">
+            <a href="{{ route('web.home') }}">
                 <span class="icon">
                     <i class="fa fa-home" aria-hidden="true"></i>
                 </span>
-                Home
+                Accueil
             </a>
         </div>
-        <div class="footer-device-mobile-item device-home device-wishlist">
-            <a href="#">
+        <div class="footer-device-mobile-item">
+            <a href="{{ route('web.products') }}">
                 <span class="icon">
-                    <i class="fa fa-heart" aria-hidden="true"></i>
+                    <i class="fa-solid fa-bag-shopping"></i>
                 </span>
-                Wishlist
-            </a>
-        </div>
-        <div class="footer-device-mobile-item device-home device-cart">
-            <a href="#">
-                <span class="icon">
-                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                    <span class="count-icon">
-                        0
-                    </span>
-                </span>
-                <span class="text">Cart</span>
+                Les Produits
             </a>
         </div>
         <div class="footer-device-mobile-item device-home device-user">
-            <a href="login.html">
+            <a href="{{ route('web.magasins') }}">
                 <span class="icon">
-                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <i class="fa-solid fa-store"></i> </span>
+                Les magasins
+            </a>
+        </div>
+        <div class="footer-device-mobile-item device-home device-cart">
+            <a href="{{ route('web.panier') }}">
+                <span class="icon">
+                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                    {{-- <span class="count-icon">
+                        0
+                    </span> --}}
                 </span>
-                Account
+                <span class="text">Panier</span>
             </a>
         </div>
     </div>
