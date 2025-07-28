@@ -15,24 +15,15 @@
                                     data-slick='{"autoplay":true, "autoplaySpeed":9000, "arrows":false, "dots":true, "infinite":true, "speed":1000, "rows":1}'
                                     data-responsive='[{"breakpoint":"2000","settings":{"slidesToShow":1}}]'>
                                     <div class="slider-item style7">
-                                        <div class="slider-inner equal-element">
+                                        <div class="slider-inner">
+                                            <div class="slider-image"></div>
                                             <div class="slider-infor">
-                                                <h5 class="title-small">
-                                                    Delivery Guercif
-                                                </h5>
+                                                <h5 class="title-small">Delivery Guercif</h5>
                                                 <h3 class="title-big">
-                                                    Bienvenue sur notre service de livraison à Guercif, <br />disponible 7
-                                                    jours
-                                                    sur 7.
+                                                    Bienvenue sur notre service de livraison à Guercif,<br>
+                                                    disponible 7 jours sur 7.
                                                 </h3>
-                                                {{-- <div class="price">
-                                                    New Price:
-                                                    <span class="number-price">
-                                                        $270.00
-                                                    </span>
-                                                </div> --}}
-                                                <a href="{{ route('web.products') }}"
-                                                    class="button btn-shop-the-look bgroud-style">Commander</a>
+                                                <a href="#" class="button">Commander</a>
                                             </div>
                                         </div>
                                     </div>
