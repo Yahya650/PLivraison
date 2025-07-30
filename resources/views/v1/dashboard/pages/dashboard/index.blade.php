@@ -373,14 +373,14 @@
                                                 <div
                                                     class="rounded bg-light avatar-md d-flex align-items-center justify-content-center">
                                                     <img src="{{ $product->produit?->getLastAttachment()?->stream() }}"
-                                                        alt="{{ $product->produit->nom ?? 'Produit' }}"
+                                                        alt="{{ $product->produit?->nom ?? 'Produit' }}"
                                                         class="avatar-md rounded rounded-3">
                                                 </div>
                                                 <div>
                                                     <a href="#!"
-                                                        class="text-dark fw-medium fs-15">{{ $product->produit->name ?? 'Produit' }}</a>
+                                                        class="text-dark fw-medium fs-15">{{ $product->produit?->name ?? 'Produit' }}</a>
                                                     <p class="text-muted mb-0 mt-1 fs-13"><b>magasin:</b>
-                                                        {{ $product->produit->magasin?->name }}
+                                                        {{ $product->produit?->magasin?->name }}
                                                     </p>
                                                 </div>
                                             </div>
