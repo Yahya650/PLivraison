@@ -22,7 +22,7 @@
 
 
 
-<form class="form-store" action="{{ route('app.magasins.update', cryptID($magasin->id)) }}" data-no-controller="true"
+<form class="form-store" action="{{ route('app.magasins.update', cryptID($magasin?->id)) }}" data-no-controller="true"
     method="POST" data-wait-button="#wait-button-add" id="magasin-form" data-container="#magasins"
     data-names-list='[
         "name",
@@ -45,7 +45,7 @@
                             <label for="Magasin-name" class="form-label">
                                 le nom du Magasin
                             </label>
-                            <input type="text" id="Magasin-name" class="form-control" value="{{ $magasin->name }}"
+                            <input type="text" id="Magasin-name" class="form-control" value="{{ $magasin?->name }}"
                                 placeholder="les nom du Magasin" name="name">
                         </div>
                     </div>
@@ -65,8 +65,8 @@
                             data-placeholder="Select Categorie" name="category_id">
                             <option value="">Choise a categorie</option>
                             @foreach ($categories as $category)
-                                <option value="{{ cryptID($category->id) }}" @selected($category->id == $magasin->category_id)>
-                                    {{ $category->name }}
+                                <option value="{{ cryptID($category?->id) }}" @selected($category?->id == $magasin?->category_id)>
+                                    {{ $category?->name }}
                                 </option>
                             @endforeach
                         </select>
@@ -79,7 +79,7 @@
                         <label for="description" class="form-label">Description</label>
                         <textarea class="form-control bg-light-subtle" id="description" name="description" rows="7"
                             placeholder="details de produit">
-                            {{ $magasin->description }}
+                            {{ $magasin?->description }}
                         </textarea>
                     </div>
                 </div>

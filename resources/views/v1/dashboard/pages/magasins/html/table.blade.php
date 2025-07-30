@@ -20,11 +20,11 @@
                 <td>
                     <div class="d-flex align-items-center gap-2">
                         <div class="rounded bg-light avatar-md d-flex align-items-center justify-content-center">
-                            <img src="{{ $magasin->getLastAttachment()?->stream() }}" alt=""
+                            <img src="{{ $magasin?->getLastAttachment()?->stream() }}" alt=""
                                 class="avatar-md rounded rounded-2">
                         </div>
                         <div>
-                            <a href="#!" class="text-dark fw-medium fs-15">{{ $magasin->name }}</a>
+                            <a href="#!" class="text-dark fw-medium fs-15">{{ $magasin?->name }}</a>
                             {{-- <p class="text-muted mb-0 mt-1 fs-13"><span>Size : </span>S , M , L , Xl
                             </p> --}}
                         </div>
@@ -32,11 +32,11 @@
                 </td>
 
                 <td>
-                    {{ $magasin->products()?->count() }}
-                    {{ $magasin->products()?->count() == 1 ? 'Produit' : 'Produits' }}
+                    {{ $magasin?->products()?->count() }}
+                    {{ $magasin?->products()?->count() == 1 ? 'Produit' : 'Produits' }}
                 </td>
                 <td>
-                    {{ $magasin->category?->name }}
+                    {{ $magasin?->category?->name }}
                 </td>
                 <td>
                     <div class="d-flex gap-2">
@@ -45,12 +45,12 @@
                             data-modal-size="modal-xl"><iconify-icon icon="solar:eye-broken"
                                 class="align-middle fs-18"></iconify-icon></a> --}}
                         <a href="#!" class="btn btn-soft-primary btn-sm anchor-modal"
-                            data-controller="MagasinController" data-modal-title="{{ $magasin->name }} (Modifier)"
-                            data-href="{{ route('app.magasins.edit', cryptID($magasin->id)) }}"
+                            data-controller="MagasinController" data-modal-title="{{ $magasin?->name }} (Modifier)"
+                            data-href="{{ route('app.magasins.edit', cryptID($magasin?->id)) }}"
                             data-modal-size="modal-xl"><iconify-icon icon="solar:pen-2-broken"
                                 class="align-middle fs-18"></iconify-icon></a>
                         <a href="#!" class="btn btn-soft-danger btn-sm anchor-delete"
-                            data-href="{{ route('app.magasins.destroy', cryptID($magasin->id)) }}"
+                            data-href="{{ route('app.magasins.destroy', cryptID($magasin?->id)) }}"
                             data-container="#magasins"><iconify-icon icon="solar:trash-bin-minimalistic-2-broken"
                                 class="align-middle fs-18"></iconify-icon></a>
                     </div>

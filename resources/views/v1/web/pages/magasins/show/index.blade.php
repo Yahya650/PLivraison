@@ -16,7 +16,7 @@
                             </li>
                             <li class="trail-item">
                                 <a
-                                    href="{{ route('web.products', ['magasin_ids' => cryptID($product->magasin_id)]) }}">{{ $product->magasin->name }}</a>
+                                    href="{{ route('web.products', ['magasin_ids' => cryptID($product->magasin_id)]) }}">{{ $product->magasin?->name }}</a>
                             </li>
                             <li class="trail-item trail-end active">
                                 {{ $product->name }}
@@ -285,7 +285,7 @@
                         <div class="owl-products owl-slick equal-container nav-center"
                             data-slick ='{"autoplay":false, "autoplaySpeed":1000, "arrows":true, "dots":false, "infinite":true, "speed":800, "rows":1}'
                             data-responsive='[{"breakpoint":"2000","settings":{"slidesToShow":3}},{"breakpoint":"1200","settings":{"slidesToShow":2}},{"breakpoint":"992","settings":{"slidesToShow":2}},{"breakpoint":"480","settings":{"slidesToShow":1}}]'>
-                            @foreach ($product->magasin->products()->limit(8)->get() as $product)
+                            @foreach ($product->magasin?->products()->limit(8)->get() as $product)
                                 <div class="product-item style-1">
                                     <div class="product-inner equal-element">
                                         <div class="product-top">

@@ -66,7 +66,7 @@
                             @include('v1.web.pages.products.html.items')
                         </ul>
                         <div class="pagination clearfix style3">
-                            {{ $products->links('vendor.pagination.custom-style3') }}
+                            {{ $products?->links('vendor.pagination.custom-style3') }}
 
                         </div>
                     </div>
@@ -101,13 +101,13 @@
 
                                     @foreach ($magasins as $magasin)
                                         @php
-                                            $inputId = 'mag_' . cryptID($magasin->id);
+                                            $inputId = 'mag_' . cryptID($magasin?->id);
                                         @endphp
                                         <li>
                                             <input type="checkbox" id="{{ $inputId }}" name="magasin_ids[]"
-                                                value="{{ cryptID($magasin->id) }}" @checked(in_array($magasin->id, $selectedMagasins))>
+                                                value="{{ cryptID($magasin?->id) }}" @checked(in_array($magasin?->id, $selectedMagasins))>
                                             <label for="{{ $inputId }}" class="label-text">
-                                                {{ $magasin->name }}
+                                                {{ $magasin?->name }}
                                             </label>
                                         </li>
                                     @endforeach
@@ -141,13 +141,14 @@
                                     @endphp
                                     @foreach ($productCategories as $productCategory)
                                         @php
-                                            $inputId = 'pc_' . cryptID($productCategory->id); // "pc_" prefix for Product Category
+                                            $inputId = 'pc_' . cryptID($productCategory?->id); // "pc_" prefix for Product Category
                                         @endphp
                                         <li>
                                             <input type="checkbox" id="{{ $inputId }}" name="product_category_ids[]"
-                                                @checked(in_array($productCategory->id, $selectedProductCategories)) value="{{ cryptID($productCategory->id) }}">
+                                                @checked(in_array($productCategory?->id, $selectedProductCategories)) value="{{ cryptID($productCategory?->id) }}">
                                             <label for="{{ $inputId }}" class="label-text">
-                                                {{ $productCategory->name }} ({{ $productCategory->products()->count() }})
+                                                {{ $productCategory?->name }}
+                                                ({{ $productCategory?->products()->count() }})
                                             </label>
                                         </li>
                                     @endforeach

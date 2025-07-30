@@ -40,7 +40,7 @@
                                                             <b>Magazine : </b> {{ $product->magasin?->name }}
                                                             <br>
                                                             <b>Category : </b>
-                                                            {{ $product->magasin->category?->name }}
+                                                            {{ $product->magasin?->category?->name }}
                                                             <br>
                                                             <b>Type : </b> {{ $product->category?->name }}
                                                         </p>

@@ -5,7 +5,7 @@
                 <div class="flash">
                     <span class="onnew">
                         <span class="text">
-                            {{ $product->magasin->name }}
+                            {{ $product->magasin?->name }}
                             @if ($product->compare_price)
                                 ({{ '-' . calculateDiscountPercentage($product->price, $product->compare_price) . ' %' }})
                             @endif

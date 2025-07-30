@@ -22,11 +22,11 @@ class MagasinSeeder extends Seeder
                     'name' => $name,
                     'slug' => Str::slug($name),
                     'description' => $faker->paragraph,
-                    'category_id' => $category->id,
+                    'category_id' => $category?->id,
                 ]);
 
-                $imageUrl = 'https://placehold.co/300x300.png?text=Magasin+' . urlencode($magasin->name);
-                $magasin->addAttachmentFromLink($imageUrl); // from HasAttachment trait
+                $imageUrl = 'https://placehold.co/300x300.png?text=Magasin+' . urlencode($magasin?->name);
+                $magasin?->addAttachmentFromLink($imageUrl); // from HasAttachment trait
             }
         }
     }

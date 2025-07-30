@@ -124,13 +124,13 @@ class CategoryController extends Controller
 
         $category = new Category();
 
-        $category->name = $request->name;
-        $category->slug = Str::slug($request->name);
-        $category->description = $request->description;
-        $category->save();
+        $category?->name = $request->name;
+        $category?->slug = Str::slug($request->name);
+        $category?->description = $request->description;
+        $category?->save();
 
         if ($request->hasFile('image')) {
-            $category->addAttachment($request->file('image'));
+            $category?->addAttachment($request->file('image'));
         }
 
         $categories = $this->categories_list();
@@ -166,13 +166,13 @@ class CategoryController extends Controller
 
         $this->validationData($request, 'UPDATE', $category);
 
-        $category->name = $request->name;
-        $category->slug = Str::slug($request->name);
-        $category->description = $request->description;
-        $category->save();
+        $category?->name = $request->name;
+        $category?->slug = Str::slug($request->name);
+        $category?->description = $request->description;
+        $category?->save();
 
         if ($request->hasFile('image')) {
-            $category->addAttachment($request->file('image'));
+            $category?->addAttachment($request->file('image'));
         }
 
         $categories = $this->categories_list();
@@ -188,8 +188,8 @@ class CategoryController extends Controller
         $category = Category::find(dcryptID($id));
         if (!$category) return response()->json(['message' => "Le Category est incorrect"], 422);
 
-        // $category->deleteAttachments();
-        $category->delete(); // To trash
+        // $category?->deleteAttachments();
+        $category?->delete(); // To trash
 
         $categories = $this->categories_list();
         return ["html" => view('v1.dashboard.pages.categories.html.table', compact('categories'))->render(), 'message' => "Le Category a été supprimé avec succès"];

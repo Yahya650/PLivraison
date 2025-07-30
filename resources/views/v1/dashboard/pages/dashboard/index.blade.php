@@ -54,7 +54,7 @@
                                     </div> <!-- end col -->
                                     <div class="col-6 text-end">
                                         <p class="text-muted mb-0">Total des produits</p>
-                                        <h3 class="text-dark mt-1 mb-0">{{ $products->count() }}</h3>
+                                        <h3 class="text-dark mt-1 mb-0">{{ $products?->count() }}</h3>
                                     </div> <!-- end col -->
                                 </div> <!-- end row-->
                             </div> <!-- end card body -->
@@ -373,13 +373,14 @@
                                                 <div
                                                     class="rounded bg-light avatar-md d-flex align-items-center justify-content-center">
                                                     <img src="{{ $product->produit?->getLastAttachment()?->stream() }}"
-                                                        alt="{{ $product->produit->nom ?? 'Produit' }}" class="avatar-md rounded rounded-3">
+                                                        alt="{{ $product->produit->nom ?? 'Produit' }}"
+                                                        class="avatar-md rounded rounded-3">
                                                 </div>
                                                 <div>
                                                     <a href="#!"
                                                         class="text-dark fw-medium fs-15">{{ $product->produit->name ?? 'Produit' }}</a>
                                                     <p class="text-muted mb-0 mt-1 fs-13"><b>magasin:</b>
-                                                        {{ $product->produit->magasin->name }}
+                                                        {{ $product->produit->magasin?->name }}
                                                     </p>
                                                 </div>
                                             </div>

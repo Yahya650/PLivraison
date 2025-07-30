@@ -27,13 +27,13 @@ class PanierController extends Controller
             $cart[$productId] = [
                 'product_id' => cryptID($product->id),
                 'magasin_id' => cryptID($product->magasin_id),
-                'category_id' => cryptID($product->magasin->category_id),
+                'category_id' => cryptID($product->magasin?->category_id),
                 'product_category_id' => cryptID($product->category_id),
                 'name' => $product->name,
                 'compare_price' => $product->compare_price,
                 'price' => $product->price,
                 'image' => $product->getLastAttachment()->stream() ?? null, // optional
-                'magasin' => $product->magasin->name ?? null,
+                'magasin' => $product->magasin?->name ?? null,
                 'quantity' => $quantity,
             ];
         }

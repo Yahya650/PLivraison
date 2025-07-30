@@ -1,4 +1,4 @@
-<form class="form-store" action="{{ route('app.types.update', cryptID($productCategory->id)) }}" data-no-controller="true"
+<form class="form-store" action="{{ route('app.types.update', cryptID($productCategory?->id)) }}" data-no-controller="true"
     method="POST" data-wait-button="#wait-button-add" id="type-form" data-container="#types" method="POST"
     data-names-list='[
         "name",
@@ -21,7 +21,7 @@
                                 le nom du type de produit
                             </label>
                             <input type="text" id="type-name" class="form-control" placeholder="les nom du type"
-                                value="{{ $productCategory->name }}" name="name">
+                                value="{{ $productCategory?->name }}" name="name">
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
                         <textarea class="form-control bg-light-subtle" id="description" name="description" rows="7"
-                            placeholder="details de type">{{ $productCategory->description }}</textarea>
+                            placeholder="details de type">{{ $productCategory?->description }}</textarea>
                     </div>
                 </div>
             </div>

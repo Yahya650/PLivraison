@@ -134,15 +134,15 @@ class MagasinController extends Controller
 
         $magasin = new Magasin();
 
-        $magasin->category_id = dcryptID($request->category_id);
+        $magasin?->category_id = dcryptID($request->category_id);
 
-        $magasin->name = $request->name;
-        $magasin->slug = Str::slug($request->name);
-        $magasin->description = $request->description;
-        $magasin->save();
+        $magasin?->name = $request->name;
+        $magasin?->slug = Str::slug($request->name);
+        $magasin?->description = $request->description;
+        $magasin?->save();
 
         if ($request->hasFile('image')) {
-            $magasin->addAttachment($request->file('image'));
+            $magasin?->addAttachment($request->file('image'));
         }
 
         $magasins = $this->magasins_list();
@@ -183,15 +183,15 @@ class MagasinController extends Controller
         $category = Category::find(dcryptID($request->category_id));
         if (!$category) return response()->json(['message' => "La catégorie est incorrect"], 422);
 
-        $magasin->category_id = dcryptID($request->category_id);
+        $magasin?->category_id = dcryptID($request->category_id);
 
-        $magasin->name = $request->name;
-        $magasin->slug = Str::slug($request->name);
-        $magasin->description = $request->description;
-        $magasin->save();
+        $magasin?->name = $request->name;
+        $magasin?->slug = Str::slug($request->name);
+        $magasin?->description = $request->description;
+        $magasin?->save();
 
         if ($request->hasFile('image')) {
-            $magasin->addAttachment($request->file('image'));
+            $magasin?->addAttachment($request->file('image'));
         }
 
         $magasins = $this->magasins_list();
@@ -207,8 +207,8 @@ class MagasinController extends Controller
         $magasin = Magasin::find(dcryptID($id));
         if (!$magasin) return response()->json(['message' => "Le Magasin est incorrect"], 422);
 
-        // $magasin->deleteAttachments();
-        $magasin->delete(); // To trash
+        // $magasin?->deleteAttachments();
+        $magasin?->delete(); // To trash
 
         $magasins = $this->magasins_list();
         return ["html" => view('v1.dashboard.pages.magasins.html.table', compact('magasins'))->render(), 'message' => "Le Magasin a été supprimé avec succès"];

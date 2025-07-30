@@ -49,7 +49,7 @@
                         <!-- end table-responsive -->
                     </div>
                     <div class="card-footer border-top">
-                        {{ $products->links('pagination::bootstrap-5') }}
+                        {{ $products?->links('pagination::bootstrap-5') }}
                     </div>
                 </div>
             </div>

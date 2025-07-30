@@ -27,7 +27,7 @@
 
             <div class="customer-info text-center mb-6">
                 <h5 class="mb-0">{{ $participant->title }} - {{ $participant->custom_id }}</h5>
-                <span>Catégorie : {{ $participant->category->display }}</span>
+                <span>Catégorie : {{ $participant->category?->display }}</span>
             </div>
 
         </div>

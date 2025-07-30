@@ -114,7 +114,7 @@
                                         <div class="flash">
                                             <span class="onnew">
                                                 <span class="text">
-                                                    {{ $product->magasin->name }}
+                                                    {{ $product->magasin?->name }}
                                                     @if ($product->compare_price)
                                                         ({{ '-' . calculateDiscountPercentage($product->price, $product->compare_price) . ' %' }})
                                                     @endif
@@ -278,25 +278,26 @@
                             @foreach ($categories as $category)
                                 <li class="@if ($loop->first) active @endif">
                                     <a data-toggle="tab" aria-expanded="true"
-                                        href="#{{ $category->slug }}">{{ $category->name }}</a>
+                                        href="#{{ $category?->slug }}">{{ $category?->name }}</a>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
                     <div class="tab-container">
                         @foreach ($categories as $category)
-                            <div id="{{ $category->slug }}"
+                            <div id="{{ $category?->slug }}"
                                 class="tab-panel @if ($loop->first) active @endif">
                                 <div class="gnash-product">
                                     <ul class="row list-products auto-clear equal-container product-grid">
-                                        @foreach ($category->magasins as $magasin)
+                                        @foreach ($category?->magasins as $magasin)
                                             <li class="product-item col-lg-3 col-md-4 col-sm-6 col-xs-6 col-ts-12 style-1">
                                                 <div class="product-inner equal-element">
                                                     <div class="product-top">
                                                         <div class="flash">
                                                             <span class="onnew">
                                                                 <span class="text">
-                                                                    Nombre de produits : {{ $magasin->products->count() }}
+                                                                    Nombre de produits :
+                                                                    {{ $magasin?->products?->count() }}
                                                                 </span>
                                                             </span>
                                                         </div>
@@ -304,9 +305,9 @@
                                                     <div class="product-thumb">
                                                         <div class="thumb-inner">
                                                             <a
-                                                                href="{{ route('web.products', ['magasin_ids' => cryptID($magasin->id)]) }}">
+                                                                href="{{ route('web.products', ['magasin_ids' => cryptID($magasin?->id)]) }}">
                                                                 <img src="{{ $magasin?->getLastAttachment()?->stream() }}"
-                                                                    alt="{{ $magasin->slug }}">
+                                                                    alt="{{ $magasin?->slug }}">
                                                             </a>
                                                             {{-- <div class="thumb-group">
                                                                 <div class="yith-wcwl-add-to-wishlist">
@@ -329,7 +330,7 @@
                                                     @endphp
                                                     <div class="product-info">
                                                         <h5 class="product-name product_title">
-                                                            <a href="#">{{ $magasin->name }}</a>
+                                                            <a href="#">{{ $magasin?->name }}</a>
                                                         </h5>
                                                         <div class="group-info">
                                                             <div class="stars-rating">

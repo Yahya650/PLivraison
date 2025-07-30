@@ -39,8 +39,8 @@
                             data-placeholder="Select Categorie" name="category_id">
                             <option value="">Choise a categorie</option>
                             @foreach ($categories as $category)
-                                <option value="{{ cryptID($category->id) }}">
-                                    {{ $category->name }}
+                                <option value="{{ cryptID($category?->id) }}">
+                                    {{ $category?->name }}
                                 </option>
                             @endforeach
                         </select>

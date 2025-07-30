@@ -117,9 +117,9 @@
                             @endphp
                             @foreach ($categories as $category)
                                 <li class="menu-item">
-                                    <a href="{{ route('web.magasins', ['category_ids' => cryptID($category->id)]) }}"
+                                    <a href="{{ route('web.magasins', ['category_ids' => cryptID($category?->id)]) }}"
                                         class="gnash-menu-item-title"
-                                        title="{{ $category->name }}">{{ $category->name }}</a>
+                                        title="{{ $category?->name }}">{{ $category?->name }}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -186,7 +186,7 @@
                                     title="Magazines">Les
                                     Magasines</a>
                                 <span class="toggle-submenu"></span>
-                                <ul class="submenu">
+                                {{-- <ul class="submenu">
                                     <li class="menu-item">
                                         <a href="gridproducts.html">Grid Fullwidth</a>
                                     </li>
@@ -199,7 +199,7 @@
                                     <li class="menu-item">
                                         <a href="listproducts.html">List</a>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </li>
                             {{-- <li class="menu-item">
                                 <a href="gridproducts.html" class="gnash-menu-item-title" title="Services">Services</a>

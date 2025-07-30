@@ -100,13 +100,13 @@
 
                                     @foreach ($magasins as $magasin)
                                         @php
-                                            $inputId = 'mag_' . cryptID($magasin->id);
+                                            $inputId = 'mag_' . cryptID($magasin?->id);
                                         @endphp
                                         <li>
                                             <input type="checkbox" id="{{ $inputId }}" name="magasin_ids[]"
-                                                value="{{ cryptID($magasin->id) }}" @checked(in_array($magasin->id, $selectedMagasins))>
+                                                value="{{ cryptID($magasin?->id) }}" @checked(in_array($magasin?->id, $selectedMagasins))>
                                             <label for="{{ $inputId }}" class="label-text">
-                                                {{ $magasin->name }}
+                                                {{ $magasin?->name }}
                                             </label>
                                         </li>
                                     @endforeach
@@ -138,13 +138,13 @@
                                     @endphp
                                     @foreach ($categories as $category)
                                         @php
-                                            $inputId = 'c_' . cryptID($category->id); // "pc_" prefix for Product Category
+                                            $inputId = 'c_' . cryptID($category?->id); // "pc_" prefix for Product Category
                                         @endphp
                                         <li>
                                             <input type="checkbox" id="{{ $inputId }}" name="category_ids[]"
-                                                @checked(in_array($category->id, $selectedCategories)) value="{{ cryptID($category->id) }}">
+                                                @checked(in_array($category?->id, $selectedCategories)) value="{{ cryptID($category?->id) }}">
                                             <label for="{{ $inputId }}" class="label-text">
-                                                {{ $category->name }} ({{ $category->magasins()->count() }})
+                                                {{ $category?->name }} ({{ $category?->magasins()->count() }})
                                             </label>
                                         </li>
                                     @endforeach

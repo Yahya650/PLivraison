@@ -5,18 +5,18 @@
                 <div class="flash">
                     <span class="onnew">
                         <span class="text">
-                            {{ $magasin->category->name }}
+                            {{ $magasin?->category?->name }}
                         </span>,
                         <span class="text">
-                            {{ $magasin->products()->count() . ' Produits' }}
+                            {{ $magasin?->products()->count() . ' Produits' }}
                         </span>
                     </span>
                 </div>
             </div>
             <div class="product-thumb">
                 <div class="thumb-inner">
-                    <a href="{{ route('web.products', ['magasin_ids' => cryptID($magasin->id)]) }}">
-                        <img src="{{ $magasin?->getLastAttachment()?->stream() }}" alt="{{ $magasin->slug }}">
+                    <a href="{{ route('web.products', ['magasin_ids' => cryptID($magasin?->id)]) }}">
+                        <img src="{{ $magasin?->getLastAttachment()?->stream() }}" alt="{{ $magasin?->slug }}">
                     </a>
                     {{-- <div class="thumb-group">
                         <div class="yith-wcwl-add-to-wishlist">
@@ -35,7 +35,7 @@
             <div class="product-info">
                 <h5 class="product-name product_title">
                     <a
-                        href="{{ route('web.products', ['magasin_ids' => cryptID($magasin->id)]) }}">{{ $magasin->name }}</a>
+                        href="{{ route('web.products', ['magasin_ids' => cryptID($magasin?->id)]) }}">{{ $magasin?->name }}</a>
                 </h5>
 
                 @php
@@ -53,10 +53,10 @@
                     </div>
                     {{-- <div class="price">
                         <del>
-                            {{ $magasin->compare_price . ' MAD' ?? '' }}
+                            {{ $magasin?->compare_price . ' MAD' ?? '' }}
                         </del>
                         <ins>
-                            {{ $magasin->price . ' MAD' ?? 'N/A' }}
+                            {{ $magasin?->price . ' MAD' ?? 'N/A' }}
                         </ins>
                     </div> --}}
                 </div>
@@ -77,7 +77,7 @@
                         display: block;
                         /* margin: 8px 90px; */
                     ">
-                        <input type="hidden" name="product_id" value="{{ cryptID($magasin->id) }}">
+                        <input type="hidden" name="product_id" value="{{ cryptID($magasin?->id) }}">
 
                         <div class="control">
                             <a class="btn-number qtyminus quantity-minus" href="#">-</a>

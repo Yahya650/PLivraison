@@ -129,7 +129,7 @@ function extractNumber($string)
 //         return null;
 //     }
 
-//     $categoryCode = $category->code;
+//     $categoryCode = $category?->code;
 //     $maxCategoryCount = Formation::where('category_id', $categoryId)->count() + 1;
 //     if ($maxCategoryCount == 2) {
 //         dd($maxCategoryCount);
@@ -160,7 +160,7 @@ function extractNumber($string)
 //         return null;
 //     }
 
-//     $categoryCode = $category->code;
+//     $categoryCode = $category?->code;
 
 //     // Get the highest existing number for this category
 //     $maxExisting = Formation::where('category_id', $categoryId)

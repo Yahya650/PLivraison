@@ -28,8 +28,8 @@ class ProduitSeeder extends Seeder
                     'description' => $faker->paragraph,
                     'price' => $faker->numberBetween(100, 5000),
                     'compare_price' => $faker->numberBetween(5000, 10000),
-                    'magasin_id' => $magasin->id,
-                    'category_id' => $category->id,
+                    'magasin_id' => $magasin?->id,
+                    'category_id' => $category?->id,
                 ]);
 
                 $imageUrl = 'https://placehold.co/300x300.png?text=Produit+' . urlencode($produit->name);

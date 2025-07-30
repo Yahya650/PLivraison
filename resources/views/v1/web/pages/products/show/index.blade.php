@@ -16,7 +16,7 @@
                             </li>
                             <li class="trail-item">
                                 <a
-                                    href="{{ route('web.products', ['magasin_ids' => cryptID($product->magasin_id)]) }}">{{ $product->magasin->name }}</a>
+                                    href="{{ route('web.products', ['magasin_ids' => cryptID($product->magasin_id)]) }}">{{ $product->magasin?->name }}</a>
                             </li>
                             <li class="trail-item trail-end active">
                                 {{ $product->name }}
@@ -278,72 +278,74 @@
                         <div class="owl-products owl-slick equal-container nav-center"
                             data-slick ='{"autoplay":false, "autoplaySpeed":1000, "arrows":true, "dots":false, "infinite":true, "speed":800, "rows":1}'
                             data-responsive='[{"breakpoint":"2000","settings":{"slidesToShow":3}},{"breakpoint":"1200","settings":{"slidesToShow":2}},{"breakpoint":"992","settings":{"slidesToShow":2}},{"breakpoint":"480","settings":{"slidesToShow":1}}]'>
-                            @foreach ($product->magasin->products()->limit(8)->get() as $product)
-                                <div class="product-item style-1">
-                                    <div class="product-inner equal-element">
-                                        <div class="product-top">
-                                            <div class="flash">
-                                                <span class="onnew">
-                                                    <span class="text">
-                                                        {{ $product->category?->name }}
-                                                        @if ($product->compare_price)
-                                                            {{ '-' . calculateDiscountPercentage($product->price, $product->compare_price) . ' %' }}
-                                                        @endif
+                            @if ($product->magasin?->products()->limit(8)->get())
+                                @foreach ($product->magasin?->products()->limit(8)->get() as $product)
+                                    <div class="product-item style-1">
+                                        <div class="product-inner equal-element">
+                                            <div class="product-top">
+                                                <div class="flash">
+                                                    <span class="onnew">
+                                                        <span class="text">
+                                                            {{ $product->category?->name }}
+                                                            @if ($product->compare_price)
+                                                                {{ '-' . calculateDiscountPercentage($product->price, $product->compare_price) . ' %' }}
+                                                            @endif
+                                                        </span>
                                                     </span>
-                                                </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href="{{ route('web.product', $product->slug) }}">
-                                                    <img src="{{ $product->getLastAttachment()?->stream() }}"
-                                                        alt="img">
-                                                </a>
-                                                <div class="thumb-group">
-                                                    <div class="yith-wcwl-add-to-wishlist">
-                                                        <div class="yith-wcwl-add-button">
-                                                            <a href="#">Add to Wishlist</a>
+                                            <div class="product-thumb">
+                                                <div class="thumb-inner">
+                                                    <a href="{{ route('web.product', $product->slug) }}">
+                                                        <img src="{{ $product->getLastAttachment()?->stream() }}"
+                                                            alt="img">
+                                                    </a>
+                                                    <div class="thumb-group">
+                                                        <div class="yith-wcwl-add-to-wishlist">
+                                                            <div class="yith-wcwl-add-button">
+                                                                <a href="#">Add to Wishlist</a>
+                                                            </div>
+                                                        </div>
+                                                        {{-- <a href="#" class="button quick-wiew-button">Quick View</a> --}}
+                                                        <div class="loop-form-add-to-cart">
+                                                            <button class="single_add_to_cart_button button">
+                                                                Add to cart
+                                                            </button>
                                                         </div>
                                                     </div>
-                                                    {{-- <a href="#" class="button quick-wiew-button">Quick View</a> --}}
-                                                    <div class="loop-form-add-to-cart">
-                                                        <button class="single_add_to_cart_button button">
-                                                            Add to cart
-                                                        </button>
-                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <h5 class="product-name product_title">
-                                                <a href="#">{{ $product->name }}</a>
-                                            </h5>
-                                            @php
-                                                $rating = rand(4.5, 5);
-                                            @endphp
-                                            <div class="group-info">
-                                                <div class="stars-rating">
-                                                    <div class="star-rating">
-                                                        <span class="star-{{ $rating }}"></span>
+                                            <div class="product-info">
+                                                <h5 class="product-name product_title">
+                                                    <a href="#">{{ $product->name }}</a>
+                                                </h5>
+                                                @php
+                                                    $rating = rand(4.5, 5);
+                                                @endphp
+                                                <div class="group-info">
+                                                    <div class="stars-rating">
+                                                        <div class="star-rating">
+                                                            <span class="star-{{ $rating }}"></span>
+                                                        </div>
+                                                        <div class="count-star">
+                                                            ({{ $rating }})
+                                                            - {{ rand(10, 100) . ' Avis' }}
+                                                        </div>
                                                     </div>
-                                                    <div class="count-star">
-                                                        ({{ $rating }})
-                                                        - {{ rand(10, 100) . ' Avis' }}
+                                                    <div class="price">
+                                                        <del>
+                                                            {{ $product->compare_price . ' MAD' }}
+                                                        </del>
+                                                        <ins>
+                                                            {{ $product->price . ' MAD' }}
+                                                        </ins>
                                                     </div>
-                                                </div>
-                                                <div class="price">
-                                                    <del>
-                                                        {{ $product->compare_price . ' MAD' }}
-                                                    </del>
-                                                    <ins>
-                                                        {{ $product->price . ' MAD' }}
-                                                    </ins>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -250,9 +250,9 @@ class WebController extends Controller
                     $product_on_order = new CommandProduct();
                     $product_on_order->command_id = $commande->id;
                     $product_on_order->product_id = $product->id;
-                    $product_on_order->magasin_id = $magasin->id;
-                    $product_on_order->category_id = $category->id;
-                    $product_on_order->product_category_id = $product_category->id;
+                    $product_on_order->magasin_id = $magasin?->id;
+                    $product_on_order->category_id = $category?->id;
+                    $product_on_order->product_category_id = $product_category?->id;
 
                     $product_on_order->unit_price = $product_on_panier['compare_price']; // Original price
                     $product_on_order->prix_remise = $product_on_panier['price'];      // Discounted price
@@ -301,13 +301,13 @@ class WebController extends Controller
         if ($req->filled('order_by')) {
             switch ($req->input('order_by')) {
                 case 'PRICE_ASC':
-                    $products->orderBy('price', 'asc');
+                    $products?->orderBy('price', 'asc');
                 case 'PRICE_DESC':
-                    $products->orderBy('price', 'desc');
+                    $products?->orderBy('price', 'desc');
                 case 'NAME_ASC':
-                    $products->orderBy('name', 'asc');
+                    $products?->orderBy('name', 'asc');
                 case 'NAME_DESC':
-                    $products->orderBy('name', 'desc');
+                    $products?->orderBy('name', 'desc');
             }
         }
 
@@ -315,7 +315,7 @@ class WebController extends Controller
 
         //     $category_ids = explode(',', $req->input('product_categories_ids'));
 
-        //     $products->whereIn('category_id', explode(',', $category_ids));
+        //     $products?->whereIn('category_id', explode(',', $category_ids));
         // };
 
         if ($req->filled('product_category_ids')) {
@@ -326,7 +326,7 @@ class WebController extends Controller
                 ->map(fn($id) => dcryptID($id))
                 ->toArray();
 
-            $products->whereIn('category_id', $productCategoryIds);
+            $products?->whereIn('category_id', $productCategoryIds);
         }
 
         if ($req->filled('magasin_ids')) {
@@ -345,21 +345,21 @@ class WebController extends Controller
                 ->toArray();
 
             // Optional: Debug
-            // dd($req->input('magasin_ids'), $magasinIds, $products->whereIn('magasin_id', $magasinIds)->get());
+            // dd($req->input('magasin_ids'), $magasinIds, $products?->whereIn('magasin_id', $magasinIds)->get());
 
-            $products->whereIn('magasin_id', $magasinIds);
+            $products?->whereIn('magasin_id', $magasinIds);
         }
         // if ($magasin_ids = $req->input('magasins')) {
-        //     $products->whereIn('magasin_id', explode(',', $magasin_ids));
+        //     $products?->whereIn('magasin_id', explode(',', $magasin_ids));
         // };
 
-        if ($req->input('q') != null) $products->where('name', "LIKE", "%" . $req->input('q') . "%");
+        if ($req->input('q') != null) $products?->where('name', "LIKE", "%" . $req->input('q') . "%");
 
         // if ($req->input('min-duration') != null || $req->input('max-duration') != null) {
-        //     $products->where('duration', ">=", (int) $req->input('min-duration'))->where('duration', "<=", (int) $req->input('max-duration'));
+        //     $products?->where('duration', ">=", (int) $req->input('min-duration'))->where('duration', "<=", (int) $req->input('max-duration'));
         // };
 
-        $products = $products->paginate(12)->appends($req->except('page'));
+        $products = $products?->paginate(12)->appends($req->except('page'));
 
         if ($req->ajax()) {
             return response()->json(['html' => view('v1.web.pages.products.html.items', compact('products'))->render()]);

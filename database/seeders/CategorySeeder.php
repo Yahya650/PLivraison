@@ -21,8 +21,8 @@ class CategorySeeder extends Seeder
                 'description' => $faker->sentence,
             ]);
 
-            $imageUrl = 'https://placehold.co/300x300.png?text=Category+' . urlencode($category->name);
-            $category->addAttachmentFromLink($imageUrl);
+            $imageUrl = 'https://placehold.co/300x300.png?text=Category+' . urlencode($category?->name);
+            $category?->addAttachmentFromLink($imageUrl);
         }
     }
 }

@@ -20,7 +20,7 @@ class ProductController extends Controller
 
         // if ($req->input('search') != null) {
         //     $searchTerm = "%" . $req->input('search') . "%";
-        //     $products->where(function ($query) use ($searchTerm) {
+        //     $products?->where(function ($query) use ($searchTerm) {
         //         $query->where('title', 'LIKE', $searchTerm)
         //             ->orWhere('slug', 'LIKE', $searchTerm);
         //     })
@@ -33,38 +33,38 @@ class ProductController extends Controller
         // }
 
         // if ($req->input('country_filter') != null) {
-        //     $products->where('country_id', $req->input('country_filter'));
+        //     $products?->where('country_id', $req->input('country_filter'));
         // }
 
         // if ($req->input('gender_filter') != null) {
-        //     $products->where('gender', $req->input('gender_filter'));
+        //     $products?->where('gender', $req->input('gender_filter'));
         // }
 
         // if ($req->input('is_completed_filter') != null) {
-        //     $products->where('is_completed', $req->input('is_completed_filter') == "true" ? 1 : 0);
+        //     $products?->where('is_completed', $req->input('is_completed_filter') == "true" ? 1 : 0);
         // }
 
         // if ($req->input('requested_date_filter') != null) {
-        //     $products->whereDate('requested_date', $req->input('requested_date_filter'));
+        //     $products?->whereDate('requested_date', $req->input('requested_date_filter'));
         // }
 
         // switch ($req->input('order_by')) {
         //     case 'BY_NAME':
-        //         $products->orderBy('first_name');
+        //         $products?->orderBy('first_name');
         //         break;
         //     case 'BY_EMAIL':
-        //         $products->orderBy('email');
+        //         $products?->orderBy('email');
         //         break;
         //     case 'BY_DATE':
-        //         $products->orderBy('date_debut');
+        //         $products?->orderBy('date_debut');
         //         break;
         //     default:
-        //         $products->orderBy('created_at', 'desc');
+        //         $products?->orderBy('created_at', 'desc');
         //         break;
         // }
 
 
-        $products = $products->latest()->paginate(12)->appends($req->except('page'));
+        $products = $products?->latest()->paginate(12)->appends($req->except('page'));
         return $products;
 
         // return Formation::latest()->paginate(9)->appends($req->except('page'));

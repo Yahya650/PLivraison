@@ -69,8 +69,8 @@
                             data-placeholder="Select Categorie" name="category_id">
                             <option value="">Choise a categorie</option>
                             @foreach ($product_categories as $product_category)
-                                <option value="{{ cryptID($product_category->id) }}" @selected($product_category->id == $product->category_id)>
-                                    {{ $product_category->name }}
+                                <option value="{{ cryptID($product_category?->id) }}" @selected($product_category?->id == $product->category_id)>
+                                    {{ $product_category?->name }}
                                 </option>
                             @endforeach
                         </select>
@@ -83,8 +83,8 @@
                             data-placeholder="Select Categorie" name="magasin_id">
                             <option value="">Choise a categorie</option>
                             @foreach ($magasins as $magasin)
-                                <option value="{{ cryptID($magasin->id) }}" @selected($magasin->id == $product->magasin_id)>
-                                    {{ $magasin->name }}
+                                <option value="{{ cryptID($magasin?->id) }}" @selected($magasin?->id == $product->magasin_id)>
+                                    {{ $magasin?->name }}
                                 </option>
                             @endforeach
                         </select>
