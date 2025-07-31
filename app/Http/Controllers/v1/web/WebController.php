@@ -224,7 +224,7 @@ class WebController extends Controller
                 $commande->client_id = auth()->user()->hasRole('client') ? auth()->user()->id : null;
                 $commande->total = collect(session()->get('panier', []))
                     ->map(fn($item) => $item['price'] * $item['quantity'])
-                    ->sum();
+                    ->sum(); 
                 $commande->full_name = $req->full_name;
                 $commande->phone_number = $req->phone;
                 $commande->quartier = $req->quartier;
