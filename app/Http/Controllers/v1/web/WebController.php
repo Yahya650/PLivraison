@@ -227,7 +227,7 @@ class WebController extends Controller
                     ->sum(); 
                 $commande->full_name = $req->full_name;
                 $commande->phone_number = $req->phone;
-                $commande->quartier = $req->quartier;
+                $commande->quartier = $req->quartier; 
                 $commande->adresse = $req->address;
                 $commande->province = $req->province;
                 $commande->save();
