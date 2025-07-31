@@ -82,7 +82,7 @@ trait HasAttachment
                 $filename .= '.' . $attachment->getClientOriginalExtension();
                 $filename = strtolower($filename);
             }
-            Storage::disk('public')->putFileAs($this->getTable(), $attachment, $filename, 'private');
+            Storage::disk('public')->putFileAs($this->getTable(), $attachment, $filename);
 
             $attachment_db = new Attachment();
             $attachment_db->table_name = $this->getTable();
@@ -158,7 +158,7 @@ trait HasAttachment
             $filename .= '-' . time() . '-' . Str::random(4);
             $filename .= '.' . $info['extension'];
             $filename = strtolower($filename);
-            Storage::disk('public')->putFileAs($this->getTable(), $attachment, $filename, 'private');
+            Storage::disk('public')->putFileAs($this->getTable(), $attachment, $filename);
             $attachment_db = new Attachment();
             $attachment_db->table_name = $this->getTable();
             $attachment_db->fk_id = $this->id;
