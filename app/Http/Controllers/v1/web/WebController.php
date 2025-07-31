@@ -238,13 +238,13 @@ class WebController extends Controller
                     if (!$product) throw new \Exception("Le produit est incorrect");
 
                     $magasin = Magasin::find(dcryptID($product_on_panier['magasin_id']));
-                    if (!$magasin) throw new \Exception("Le magasin est incorrect");
+                    // if (!$magasin) throw new \Exception("Le magasin est incorrect");
 
                     $category = Category::find(dcryptID($product_on_panier['category_id']));
-                    if (!$category) throw new \Exception("La catégorie est incorrecte");
+                    // if (!$category) throw new \Exception("La catégorie est incorrecte");
 
                     $product_category = ProductCategory::find(dcryptID($product_on_panier['product_category_id']));
-                    if (!$product_category) throw new \Exception("Le type est incorrect");
+                    // if (!$product_category) throw new \Exception("Le type est incorrect");
 
                     // Enregistrer les produits de la commande
                     $product_on_order = new CommandProduct();

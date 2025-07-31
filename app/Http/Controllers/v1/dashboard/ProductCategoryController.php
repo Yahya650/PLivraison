@@ -72,7 +72,7 @@ class ProductCategoryController extends Controller
     {
         // Dynamic validation rules
         $rules = [
-            'name' => 'required|string|unique:product_categories,name,' .  $productCategory->id ?? null,
+            'name' => 'required|string|unique:product_categories,name,' .  $productCategory?->id ?? null,
             'image' => 'nullable|mimes:jpg,jpeg,png,gif,svg|max:2048',
             'description' => 'nullable|string',
         ];
