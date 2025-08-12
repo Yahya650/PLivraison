@@ -221,7 +221,7 @@ class WebController extends Controller
             DB::transaction(function () use ($req, &$commande) {
                 // Créer la commande
                 $commande = new Commande();
-                $commande->client_id = auth()->user()->hasRole('client') ? auth()->user()->id : null;
+                $commande->client_id = auth()?->user()?->hasRole('client') ? auth()->user()->id : null;
                 $commande->total = collect(session()->get('panier', []))
                     ->map(fn($item) => $item['price'] * $item['quantity'])
                     ->sum();
