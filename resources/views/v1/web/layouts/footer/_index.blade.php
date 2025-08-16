@@ -104,7 +104,7 @@
                         </div>
                         <div class="coppyright">
                             Copyright © {{ date('Y') }}
-                            <a href="https://wecodeit.net/" target="_blank">WeCodeIt</a>
+                            <a href="#" target="_blank">WeCodeIt</a>
                             . Tous droits réservés
                         </div>
                     </div>

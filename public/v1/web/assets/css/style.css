@@ -8063,7 +8063,7 @@ ul.list-products {
 
 /*slider-banner*/
 .home-slider-banner {
-	margin-bottom: 38px;
+	/* margin-bottom: 38px; */
 }
 
 .home-slider-banner .silider-wrapp,
@@ -10306,7 +10306,7 @@ body.vertical-menu-open .vertical-menu-overlay {
 
 /*banner home 02*/
 .item-banner.style4 .inner {
-	background-image: url(../images/banner-home-2.jpg);
+	background-image: url(../images/pizza.png);
 	background-size: cover;
 }
 
@@ -10330,7 +10330,7 @@ body.vertical-menu-open .vertical-menu-overlay {
 }
 
 .item-banner.style5 .inner {
-	background-image: url(../images/banner-home-3.jpg);
+	background-image: url(../images/tacos.png);
 	background-size: cover;
 }
 
@@ -13604,7 +13604,7 @@ a:active,
 	}
 
 	.home-slider-banner {
-		margin-bottom: 58px;
+		/* margin-bottom: 58px; */
 	}
 
 	.gnash-product.produc-featured.rows-space-65 {

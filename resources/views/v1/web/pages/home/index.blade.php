@@ -17,13 +17,17 @@
                                     <div class="slider-item style7">
                                         <div class="slider-inner">
                                             <div class="slider-image"></div>
-                                            <div class="slider-infor">
+                                            <div class="slider-infor"
+                                                style="
+                                                        margin: 0px 0px;
+                                                        padding: 50px 0px;
+                                                    ">
                                                 <h5 class="title-small">Delivery Guercif</h5>
                                                 <h3 class="title-big">
                                                     Bienvenue sur notre service de livraison à Guercif,<br>
                                                     disponible 7 jours sur 7.
                                                 </h3>
-                                                <a href="#" class="button">Commander</a>
+                                                <a href="{{ route('web.products') }}" class="button">Commander</a>
                                             </div>
                                         </div>
                                     </div>
@@ -209,36 +213,35 @@
             <div class="banner-wrapp">
                 <div class="container">
                     <div class="row">
+                        <!-- Bloc 1 - Livraison Gratuite -->
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="banner">
                                 <div class="item-banner style4">
                                     <div class="inner">
                                         <div class="banner-content">
-                                            <h4 class="gnash-subtitle">TOP STAFF PICK</h4>
-                                            <h3 class="title">Best Collection</h3>
+                                            <h4 class="gnash-subtitle">LIVRAISON OFFERTE</h4>
+                                            <h3 class="title">Livraison gratuite à Guercif 🚚</h3>
                                             <div class="description">
-                                                Proin interdum magna primis id consequat dictum
+                                                Commandez et recevez-les sans frais de livraison, directement chez vous.
                                             </div>
-                                            <a href="#" class="button btn-shop-now">Shop now</a>
+                                            <a href="{{ route('web.products') }}" class="button btn-shop-now">Commander
+                                                maintenant</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Bloc 2 - Promotions -->
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="banner">
                                 <div class="item-banner style5">
                                     <div class="inner">
                                         <div class="banner-content">
-                                            <h3 class="title">Maybe You’ve <br />Earned it</h3>
-                                            <span class="code">
-                                                Use code:
-                                                <span>
-                                                    GNASH
-                                                </span>
-                                                Get 25% Off for all Healthy items!
+                                            <h3 class="title">PROMOTIONS EXCLUSIVES 💸</h3>
+                                            <span class="code">Profitez de -25% sur une sélection de produits frais !
                                             </span>
-                                            <a href="#" class="button btn-shop-now">Shop now</a>
+                                            <a href="{{ route('web.products') }}" class="button btn-shop-now">Voir les
+                                                offres</a>
                                         </div>
                                     </div>
                                 </div>
@@ -247,170 +250,85 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Bloc 3 - Meilleur Service -->
             <div class="banner-wrapp rows-space-65">
                 <div class="container">
                     <div class="banner">
                         <div class="item-banner style17">
                             <div class="inner">
                                 <div class="banner-content">
-                                    <h3 class="title">Collection Arrived</h3>
+                                    <h3 class="title">Le meilleur service à Guercif</h3>
                                     <div class="description">
-                                        You have no items & Are you <br />ready to use? come & shop with us!
+                                        Fraîcheur garantie, livraison rapide et satisfaction assurée.<br>
+                                        Avec Delivery Guercif, vous êtes toujours bien servi !
                                     </div>
                                     <div class="banner-price">
-                                        Price from:
-                                        <span class="number-price">$45.00</span>
+                                        À partir de :
+                                        <span class="number-price">45 DH</span>
                                     </div>
-                                    <a href="#" class="button btn-shop-now">Shop now</a>
+                                    <a href="{{ route('web.products') }}" class="button btn-shop-now">Commander
+                                        maintenant</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="gnash-tabs  default rows-space-40">
-                <div class="container">
-                    <h3 class="custommenu-title-blog product">
-                        Les magasins
-                    </h3>
-                    <div class="tab-head">
-                        <ul class="tab-link">
-                            @foreach ($categories as $category)
-                                <li class="@if ($loop->first) active @endif">
-                                    <a data-toggle="tab" aria-expanded="true"
-                                        href="#{{ $category?->slug }}">{{ $category?->name }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <div class="tab-container">
-                        @foreach ($categories as $category)
-                            <div id="{{ $category?->slug }}"
-                                class="tab-panel @if ($loop->first) active @endif">
-                                <div class="gnash-product">
-                                    <ul class="row list-products auto-clear equal-container product-grid">
-                                        @foreach ($category?->magasins as $magasin)
-                                            <li class="product-item col-lg-3 col-md-4 col-sm-6 col-xs-6 col-ts-12 style-1">
-                                                <div class="product-inner equal-element">
-                                                    <div class="product-top">
-                                                        <div class="flash">
-                                                            <span class="onnew">
-                                                                <span class="text">
-                                                                    Nombre de produits :
-                                                                    {{ $magasin?->products?->count() }}
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-thumb">
-                                                        <div class="thumb-inner">
-                                                            <a
-                                                                href="{{ route('web.products', ['magasin_ids' => cryptID($magasin?->id)]) }}">
-                                                                <img src="{{ $magasin?->getLastAttachment()?->stream() }}"
-                                                                    alt="{{ $magasin?->slug }}">
-                                                            </a>
-                                                            {{-- <div class="thumb-group">
-                                                                <div class="yith-wcwl-add-to-wishlist">
-                                                                    <div class="yith-wcwl-add-button">
-                                                                        <a href="#">Add to Wishlist</a>
-                                                                    </div>
-                                                                </div>
-                                                                <a href="#" class="button quick-wiew-button">Quick
-                                                                View</a>
-                                                                <div class="loop-form-add-to-cart">
-                                                                    <button class="single_add_to_cart_button button">Add to
-                                                                        cart
-                                                                    </button>
-                                                                </div>
-                                                            </div> --}}
-                                                        </div>
-                                                    </div>
-                                                    @php
-                                                        $rating = rand(4.5, 5);
-                                                    @endphp
-                                                    <div class="product-info">
-                                                        <h5 class="product-name product_title">
-                                                            <a href="#">{{ $magasin?->name }}</a>
-                                                        </h5>
-                                                        <div class="group-info">
-                                                            <div class="stars-rating">
-                                                                <div class="star-rating">
-                                                                    <span class="star-{{ $rating }}"></span>
-                                                                </div>
-                                                                <div class="count-star">
-                                                                    ({{ $rating }})
-                                                                    - {{ rand(10, 100) . ' Avis' }}
-                                                                </div>
-                                                            </div>
-                                                            {{-- <div class="price">
-                                                                <del>
-                                                                    $65
-                                                                </del>
-                                                                <ins>
-                                                                    $45
-                                                                </ins>
-                                                            </div> --}}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
+
             <div class="gnash-iconbox-wrapp default">
                 <div class="container">
                     <div class="row">
+                        <!-- Livraison gratuite -->
                         <div class="col-md-4 col-sm-4">
-                            <div class="gnash-iconbox  default">
+                            <div class="gnash-iconbox default">
                                 <div class="iconbox-inner">
                                     <div class="icon-item">
                                         <span class="icon flaticon-rocket-ship"></span>
                                     </div>
                                     <div class="content">
                                         <h4 class="title">
-                                            EU Free Delivery
+                                            Livraison gratuite
                                         </h4>
                                         <div class="text">
-                                            Free Delivery on all order from EU <br />with price more than $90.00
+                                            Livraison offerte sur toutes vos commandes.
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Garantie satisfait ou remboursé -->
                         <div class="col-md-4 col-sm-4">
-                            <div class="gnash-iconbox  default">
+                            <div class="gnash-iconbox default">
                                 <div class="iconbox-inner">
                                     <div class="icon-item">
                                         <span class="icon flaticon-return"></span>
                                     </div>
                                     <div class="content">
                                         <h4 class="title">
-                                            Money Guarantee
+                                            Garantie remboursement
                                         </h4>
                                         <div class="text">
-                                            30 Days money back guarantee <br />no question asked!
+                                            30 jours satisfait ou remboursé <br />sans poser de questions !
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Support client -->
                         <div class="col-md-4 col-sm-4">
-                            <div class="gnash-iconbox  default">
+                            <div class="gnash-iconbox default">
                                 <div class="iconbox-inner">
                                     <div class="icon-item">
                                         <span class="icon flaticon-padlock"></span>
                                     </div>
                                     <div class="content">
                                         <h4 class="title">
-                                            Online Support 24/7
+                                            Support en ligne 24/7
                                         </h4>
                                         <div class="text">
-                                            We’re here to support to you. <br />Let’s shopping now!
+                                            Nous sommes toujours là pour vous aider. <br />Faites vos achats en toute
+                                            confiance !
                                         </div>
                                     </div>
                                 </div>
@@ -418,6 +336,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             {{-- <div class="gnash-blog-wraap default">
                 <div class="container">
